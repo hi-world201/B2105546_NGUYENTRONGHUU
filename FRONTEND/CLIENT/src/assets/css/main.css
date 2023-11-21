@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;600&display=swap');
+
+* {
+    font-family: 'Playpen Sans', cursive;
+    font-size: 1.1rem;
+    --color-primary: rgba(78, 54, 13, 1);
+    --color-primary-opacity: rgba(78, 54, 13, 0.612);
+    /* --color-primary-opacity: rgb(150, 113, 50); */
+    --color-secondary: rgb(185, 132, 40);
+    --color-tertiary: #005786;
+    --color-quaternary: #FFEED9;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    text-decoration: none !important;
+}
+
+a.router-link {
+    color: var(--color-secondary);
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+a.router-link:hover {
+    opacity: 0.8;
+}
+

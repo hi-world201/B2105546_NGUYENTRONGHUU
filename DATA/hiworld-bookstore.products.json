@@ -1,0 +1,308 @@
+[{
+  "_id": {
+    "$oid": "6517088d9a763d6582ce8c60"
+  },
+  "name": "Thao túng tâm lý",
+  "price": 118000,
+  "stockQuantity": 13,
+  "categories": [
+    "Sách tiếng việt",
+    "Sách kĩ năng sống",
+    "Sách tư duy"
+  ],
+  "images": [
+    {
+      "$oid": "653fdf496835e59dd9fcb158"
+    },
+    {
+      "$oid": "653fdf496835e59dd9fcb159"
+    }
+  ],
+  "description": "Trong cuốn 'Thao túng tâm lý', tác giả Shannon Thomas giới thiệu đến độc giả những hiểu biết liên quan đến thao túng tâm lý và lạm dụng tiềm ẩn. \n'Thao túng tâm lý' là một dạng của lạm dụng tâm lý. Cũng giống như lạm dụng tâm lý, thao túng tâm lý có thể xuất hiện ở bất kỳ môi trường nào, từ bất cứ đối tượng độc hại nào. Đó có thể là bố mẹ ruột, anh chị em ruột, người yêu, vợ hoặc chồng, sếp hay đồng nghiệp… của bạn. Với tính chất bí hiểm, âm thầm gây hại, thao túng, lạm dụng tâm lý làm tổn thương cảm xúc, lòng tự trọng, cuộc sống của mỗi nạn nhân. Những người từng bị lạm dụng tâm lý thường không thể miêu tả rõ ràng điều gì đã xảy ra với mình. Trong nhiều trường hợp, nạn nhân bị thao túng đến mức tự hỏi có phải họ là người có lỗi, thậm chí họ có phải là người độc hại trong mối quan hệ đó.\nHành vi của (những) kẻ lạm dụng giống như một trò chơi bí ẩn, tệ hại và lặp đi lặp lại, do một cá nhân hoặc một nhóm người thực hiện với nạn nhân. Những hành vi này được ngụy trang tài tình đến mức hành vi độc ác của họ diễn ra thường xuyên, nhưng không bị phát hiện.\nShannon Thomas giới thiệu những kiến thức cơ bản về đặc điểm, các dạng của lạm dụng tâm lý nói chung, thao túng tâm lý nói riêng, và cung cấp cho người đọc hành trình chữa lành gồm 6 giai đoạn:\nGiai đoạn 1: Tuyệt vọng\nGiai đoạn 2: Nhận diện\nGiai đoạn 3: Thức tỉnh\nGiai đoạn 4: Những ranh giới\nGiai đoạn 5: Phục hồi\nGiai đoạn 6: Duy trì\nBằng những kiến thức chuyên sâu và sự thấu hiểu, tác giả sẽ giúp bạn từng bước vượt qua những rắc rối của thao túng tâm lý, lạm dụng tiểm ẩn để có cuộc sống ý nghĩa và lành mạnh hơn.\nThông tin tác giả:\nShannon Thomas, là một nhà giám sát công tác xã hội y tế được cấp phép hành nghề, và là chủ phòng tư vấn/chuyên gia tư vấn tâm lý chính của phòng tư vấn Southlake Christian (SCC) ở Southlake, bang Texas.\nSCC từng nhận giải thưởng 'Phòng thực hành tư vấn tâm lý tốt nhất' năm 2016 của Living Magazine khu vực Hạt Northeast Tarrant tại Dallas-Fort Worth.\nThomas là Trợ giảng chuyên ngành và là thành viên Ủy ban tư vấn của Khoa Công tác xã hội – Trường Đại học Texas Christian.\nCách tiếp cận khi tư vấn tâm lý của cô ấy xuất phát từ góc nhìn của một nhà tư vấn tâm lý được cấp phép hành nghề đồng thời từ góc nhìn của một người đi trước, một người sống sót sau khi bị lạm dụng tâm lý.",
+  "createdAt": {
+    "$date": "2023-10-30T16:45:02.147Z"
+  },
+  "createdBy": {
+    "$oid": "653fcfa55f3affbdac7042c2"
+  },
+  "__v": 1,
+  "slug": "thao-tung-tam-ly"
+},
+{
+  "_id": {
+    "$oid": "6517096ef854d0e8ed8377f4"
+  },
+  "name": "Combo 2Q: Tớ Học Lập Trình - Làm Quen Với Python + Clean code – Mã sạch và con đường trở thành lập trình viên giỏi",
+  "price": 420000,
+  "stockQuantity": 25,
+  "categories": [
+    "Sách tiếng Việt",
+    "Sách Công Nghệ Thông Tin",
+    "Lập Trình"
+  ],
+  "images": [
+    {
+      "$oid": "653fe39fd631950a423679ab"
+    }
+  ],
+  "description": "Combo 2Q: Tớ Học Lập Trình - Làm Quen Với Python + Clean code – Mã sạch và con đường trở thành lập trình viên giỏi\n1.Tớ Học Lập Trình - Làm Quen Với Python \nSách hướng dẫn lập trình cho các bạn mới học cách dùng ngôn ngữ máy tính Python.\nChỉ dẫn từng bước để bạn biết cách lập trình, tạo trò chơi, vẽ và làm đủ trò hay ho với Python.\nChú giải các thuật ngữ máy tính đầy đủ và rõ ràng ở cuối sách.\nThật nhiều trang web hữu ích để bạn tìm hiểu thêm trên mạng và tải về các mã lệnh cần thiết.\nSách dành cho lứa tuổi 6+\n2.Clean code – Mã sạch và con đường trở thành lập trình viên giỏi\nHiện nay, lập trình viên là một trong những nghề nghiệp được nhiều người lựa chọn theo đuổi và gắn bó. Đây là công việc đòi hỏi sự tỉ mỉ, nhiều công sức nhưng mang lại giá trị cao và một tương lai công việc hứa hẹn. Là một trong số những chuyên gia giàu kinh nghiệm, điêu luyện và lành nghề trong ngành, tác giả đã đúc rút từ kinh nghiệm của mình, viết về những tình huống trong thực tế, đôi khi có thể trái ngược với lý thuyết để xây dựng nên cuốn cẩm nang này, nhằm hỗ trợ những người đang muốn trở thành một lập trình viên chuyên nghiệp.\nCuốn sách được nhiều lập trình viên đánh giá là quyển sách giá trị nhất mà họ từng đọc trong sự nghiệp của mình. Cuốn sách hướng dẫn cách để viết những đoạn mã có thể hoạt động tốt, cũng như truyền tải được ý định của người viết nên chúng.\nCuốn sách được chia thành ba phần lớn. Phần đầu tiên mô tả các nguyên tắc, mô hình và cách thực hành viết mã sạch. Phần thứ hai gồm nhiều tình huống điển hình với mức độ phức tạp gia tang không ngừng. Mỗi tình huống là một bài tập giúp làm sạch mã, chuyển đổi mã có nhiều vấn đề thành mã có ít vấn đề hơn. Và phần cuối là tuyển tập rất nhiều những dấu hiệu của mã có vấn đề, những tìm tòi, suy nghiệm từ thực tiễn được đúc rút qua cách tình huống điển hình.",
+  "createdAt": {
+    "$date": "2023-10-30T17:07:52.574Z"
+  },
+  "createdBy": {
+    "$oid": "653fce505f3affbdac7042b9"
+  },
+  "__v": 1,
+  "slug": "combo-2q:-to-hoc-lap-trinh-lam-quen-voi-python-+-clean-code-ma-sach-va-con-djuong-tro-thanh-lap-trinh-vien-gioi"
+},
+{
+  "_id": {
+    "$oid": "65170a64f854d0e8ed8377f9"
+  },
+  "name": "Mất Kết Nối (Lost Connections) - Tác giả Johann Hari",
+  "price": 200000,
+  "stockQuantity": 1,
+  "categories": [
+    "Sách tiếng việt",
+    "Sách kĩ năng sống",
+    "Sách tư duy"
+  ],
+  "images": [
+    {
+      "$oid": "653fe4480f049f4386c5f81f"
+    },
+    {
+      "$oid": "653fe4480f049f4386c5f820"
+    }
+  ],
+  "description": "\nSÁCH - Mất Kết Nối\nTựa Tiếng Anh Lost Connections\nTác giả Johann Hari\n----\nLOST CONNECTIONS - MẤT KẾT NỐI\nChứng trầm cảm, lo âu và những điều bị bỏ quên\nTrầm cảm - căn bệnh của thời đại 4.0\nKhái niệm và các triệu chứng của rối loạn trầm cảm đang dần ngày càng trở nên quen thuộc hơn trong xã hội hiện đại, đặc biệt là khi internet và các mạng xã hội trở nên phổ biến hơn. Tuy nhiên, không vì thế mà người ta có cái nhìn đúng đắn hay tích cực về căn bệnh này. Vẫn còn đâu đó có người nghĩ rằng, trầm cảm là một chứng bệnh của những tính cách yếu đuối, của những cơn buồn bã nhất thời, của những tưởng tượng của tuổi vị thành niên hướng nội, Thực tế thì, căn bệnh này ảnh hưởng đến 264 triệu người trên thế giới, và dần được công nhận là một vấn đề y khoa, giống như bệnh tim hoặc tiểu đường.\nChắc hẳn rằng, không ít lần bạn tự hỏi: “Tại sao ngày càng có nhiều người trở nên trầm cảm – trong một thời đại mà nếu xét về mặt vật chất, chúng ta đang ở đỉnh cao chưa từng có trong suốt chiều dài lịch sử nhân loại và tiện nghi cuộc sống giúp chúng ta dễ dàng kết nối với nhau hơn bao giờ hết? Phải chăng những giá trị mà xã hội và chính chúng ta đang vẽ ra không thực sự đáp ứng được những nhu cầu cơ bản nhất của chính mình? Phải chăng trên con đường tiến hóa, con người đã quên đi những điều thật sự làm mình hạnh phúc?”. Và bạn đã tìm được câu trả lời chưa?\nNhững viên thuốc điều trị trầm cảm liệu có hiệu quả?\nNếu trước kia sự can thiệp cho căn bệnh chỉ là vài lời khuyên tùy tiện kiểu như “hãy vui lên nào”, “hãy suy nghĩ tích cực”, hay thậm chí là thái độ kỳ thị xem bệnh trạng như biểu hiện tâm lý đặc thù của một giai cấp thị dân nhàn rỗi, khuynh hướng điều trị chiếm ưu thế hiện nay lại mang đầy ảo tưởng về những viên thuốc “thần” có thể giải quyết mọi vấn đề của tâm lý. Khuynh hướng này không chỉ đơn giản là âm mưu thương mại của những tập đoàn dược phẩm toàn cầu mà nó còn phát xuất từ sự lười biếng trong nhận thức và hành vi của mỗi cá nhân, khi chúng ta thèm khát sự dễ dãi của việc uống vài viên thuốc mỗi ngày thay vì đánh giá lại cuộc sống hằng ngày.\nLost connections - Mất kết nối và 9 nguyên nhân gây ra bệnh trầm cảm\nTrước khi đưa ra những giải pháp hữu hiệu về căn bệnh thời đại này, Johann Hari đã lên tiếng đặt lại vấn đề nguyên nhân của chứng bệnh trầm cảm với hướng tiếp cận sinh thái cũng như bằng trải nghiệm trực tiếp. Trong sách Mất kết nối: Khám phá các Nguyên nhân thực của Trầm cảm và các Giải pháp bất ngờ [Lost Connections: Uncovering the Real Causes of Depression – and the Unexpected Solutions], Johann Hari không chỉ giới hạn việc nghiên cứu về đề tài này thông qua việc tham khảo các tài liệu y khoa từ nhiều giác độ khác nhau mà còn gặp gỡ trực tiếp thảo luận với các nhà khoa học tâm lý và tâm thần cũng như các bệnh nhân trầm cảm để hoàn tất cuốn sách của mình.\nNói tới hướng tiếp cận sinh thái, đã từ lâu các sách giáo khoa và chương trình đào tạo Tâm lý học ở u Mỹ đều nhắc đến mô hình tâm lý – xã hội – sinh học. Việc ứng dụng mô hình này có nghĩa là một hiện tượng, đề cập ở đây là bệnh trầm cảm, cần được đánh giá toàn diện để nhận diện không chỉ các nguyên nhân mà còn cả các tiếp cận điều trị dựa trên tất cả các yếu tố ấy. Ở một mức độ giới hạn hơn, cộng đồng khoa học chính thống cũng đã từ lâu nhắc đến các yếu tố môi trường khi cho rằng có hai loại trầm cảm: “trầm cảm nội sinh” (endogenous depression) do những rối loạn ở não hoặc cơ thể và “trầm cảm phản ứng” (reactive depression) do hậu quả từ sự trải nghiệm những biến cố khủng hoảng trong cuộc sống cá nhân của một cá nhân.\nThế nhưng lâu nay dường như những yếu tố tạo điều kiện cho chứng trầm cảm phản ứng luôn bị giới chuyên môn xem nhẹ. Mở đầu cho cuốn sách của mình, Johann Hari đã nhắc đến sự giới hạn này và nhắc đến nghiên cứu năm 1978 của George Brown, chuyên gia Xã hội học Y tế, và Tirril Harris, chuyên gia Tâm lý học Xã hội. Hai nhà nghiên cứu này đã phát hiện nguy cơ trầm cảm có thể cao hơn nhiều khi một người gặp phải một sự kiện tiêu cực nghiêm trọng chồng lên những điều căng thẳng và bất an kéo dài trong cuộc sống. Nguy cơ mắc trầm cảm của sự kết hợp đó tương tự như một phản ứng tỏa nhiệt trong hóa học; nó không chỉ là phép cộng mà là sự bùng nổ của rối loạn trầm cảm. Môi trường chúng ta sống mới chính là khởi đầu của những nguy cơ của chứng rối loạn tâm trạng đáng sợ này, đặc biệt khi chúng ta đánh mất sự kết nối với chúng.\n#saigonbooks\n#Matketnoi",
+  "createdAt": {
+    "$date": "2023-10-30T17:07:52.574Z"
+  },
+  "createdBy": {
+    "$oid": "653fce505f3affbdac7042b9"
+  },
+  "__v": 1,
+  "slug": "mat-ket-noi-(lost-connections)-tac-gia-johann-hari"
+},
+{
+  "_id": {
+    "$oid": "65170afdf854d0e8ed8377fc"
+  },
+  "name": "Mùa hè không tên (Nguyễn Nhật Ánh) - Tặng kèm Bookmark, Tranh màu, Sổ note cho cả 2 phiên bản - Tặng thêm ngẫu nhiên 1 trong 2 Lót ly cho Bản bìa cứng",
+  "price": 109000,
+  "stockQuantity": 20,
+  "categories": [
+    "Sách tiếng việt",
+    "Sách văn học",
+    "Truyện dài"
+  ],
+  "images": [
+    {
+      "$oid": "653fe4c30f049f4386c5f830"
+    },
+    {
+      "$oid": "653fe4c30f049f4386c5f831"
+    },
+    {
+      "$oid": "653fe4c30f049f4386c5f832"
+    }
+  ],
+  "description": "\n“Mùa hè không tên” là truyện dài mới nhất của nhà văn Nguyễn Nhật Ánh, với những câu chuyện tuổi thơ với vô số trò tinh nghịch, những thoáng thinh thích hồi hộp cùng vô vàn kỷ niệm. Để rồi khi những tháng ngày trong sáng của tình bạn dần qua, bọn nhỏ trong mỗi gia đình bình dị lớn lên cùng chứng kiến những giây phút cảm động của câu chuyện tình thân, nỗi khát khao hạnh phúc êm đềm, cùng bỡ ngỡ bước vào tuổi lớn nhiều yêu thương mang cả màu va vấp.\nMùa hè năm ấy của cậu bé Khang không chỉ toàn chuyện leo cây hái trái và qua lại với con Nhàn hồn hậu đáng yêu ưa nuôi bọn cá dị tật, mà có Tí, có Chỉnh, rồi Túc, Đí phải đối mặt với những thử thách của số phận. Nhưng vì sao là “mùa hè không tên”?\n“Đó là mùa hè thật đặc biệt với tôi. Sau mùa hè đó, cuộc sống của tôi đã thay đổi mãi mãi.\nVì vậy tôi muốn đặt cho nó một cái tên để nó không giống với những mùa hè khác trong đời tôi mỗi khi tôi nhớ về. Tôi định gọi nó là mùa hè chia tay, mùa hè ưu tư, mùa hè định mệnh, hay sến sẩm một chút là mùa hè có mây tím bay nhưng rồi tôi thấy không cái tên nào thật sự phù hợp. Cuối cùng, tôi nghĩ nếu cần phải có một cái tên thì tôi sẽ đặt tên cho nó là mùa hè không tên. Ờ, mùa hè đặc biệt của tôi cần gì phải khoác một cái tên riêng khi mà mỗi lần đầu óc tôi quay ngược về thời kỳ đó, tôi luôn thấy lòng đầy xáo trộn. Nó đã khắc lên số phận tôi những dấu vết không thể phai mờ - như vết chàm mà con người ta phải mang theo cho đến tận cuối đời.” (Trích)\nNhà văn Nguyễn Nhật Ánh vốn nổi tiếng qua nhiều thế hệ bạn đọc với nhiều tác phẩm đi vào lòng người. Với tác phẩm này, ông vẫn luôn giữ thông điệp khơi dậy khao khát sống đẹp, sống tử tế nơi người đọc. Sách gồm 25 tranh minh họa lớn và nhiều minh họa nhỏ xinh xắn từ họa sĩ Đỗ Hoàng Tường.\nQuà tặng kèm sách:\n- Bìa cứng: 1 bookmark bế góc, 1 bức tranh in 4 màu trên giấy couche định lượng 150gsm, kích thước 33 x 19.5cm, 1 lót ly giấy (ngẫu nhiên 1 trong 2 mẫu).\n- Bìa mềm: 1 bookmark bế góc, 1 bức tranh in 4 màu trên giấy couche định lượng 150gsm, kích thước 33 x 19.5cm",
+  "createdAt": {
+    "$date": "2023-10-30T17:12:07.806Z"
+  },
+  "createdBy": {
+    "$oid": "653fce505f3affbdac7042b9"
+  },
+  "__v": 1,
+  "slug": "mua-he-khong-ten-(nguyen-nhat-anh)-tang-kem-bookmark-tranh-mau-so-note-cho-ca-2-phien-ban-tang-them-ngau-nhien-1-trong-2-lot-ly-cho-ban-bia-cung"
+},
+{
+  "_id": {
+    "$oid": "65170b7af854d0e8ed8377ff"
+  },
+  "name": "Không Diệt Không Sinh Đừng Sợ Hãi (TB5)",
+  "price": 70000,
+  "stockQuantity": 12,
+  "categories": [
+    "Sách tiếng việt",
+    "Sách kĩ năng sống",
+    "Sách tư duy"
+  ],
+  "images": [
+    {
+      "$oid": "653fe5400f049f4386c5f83e"
+    },
+    {
+      "$oid": "653fe5400f049f4386c5f83f"
+    },
+    {
+      "$oid": "653fe5400f049f4386c5f840"
+    }
+  ],
+  "description": "Nhiều người trong chúng ta tin rằng cuộc đời của ta bắt đầu từ lúc chào đời và kết thúc khi ta chết. Chúng ta tin rằng chúng ta tới từ cái Không, nên khi chết chúng ta cũng không còn lại gì hết. Và chúng ta lo lắng vì sẽ trở thành hư vô.\nBụt có cái hiểu rất khác về cuộc đời. Ngài hiểu rằng sống và chết chỉ là những ý niệm không có thực. Coi đó là sự thực, chính là nguyên do gây cho chúng ta khổ não. Bụt dạy không có sinh, không có diệt, không tới cũng không đi, không giống nhau cũng không khác nhau, không có cái ngã thường hằng cũng không có hư vô. Chúng ta thì coi là Có hết mọi thứ. Khi chúng ta hiểu rằng mình không bị hủy diệt thì chúng ta không còn lo sợ. Đó là sự giải thoát. Chúng ta có thể an hưởng và thưởng thức đời sống một cách mới mẻ.\nKhông diệt Không sinh Đừng sợ hãi là tựa sách được Thiền sư Thích Nhất Hạnh viết nên dựa trên kinh nghiệm của chính mình. Ở đó, Thầy Nhất Hạnh đã đưa ra một thay thế đáng ngạc nhiên cho hai triết lý trái ngược nhau về vĩnh cửu và hư không: 'Tự muôn đời tôi vẫn tự do. Tử sinh chỉ là cửa ngõ ra vào, tử sinh là trò chơi cút bắt. Tôi chưa bao giờ từng sinh cũng chưa bao giờ từng diệt' và 'Nỗi khổ lớn nhất của chúng ta là ý niệm về đến-đi, lui-tới.'\nĐược lặp đi lặp lại nhiều lần, Thầy khuyên chúng ta thực tập nhìn sâu để chúng ta hiểu được và tự mình nếm được sự tự do của con đường chính giữa, không bị kẹt vào cả hai ý niệm của vĩnh cửu và hư không. Là một thi sĩ nên khi giải thích về các sự trái ngược trong đời sống, Thầy đã nhẹ nhàng vén bức màn vô minh ảo tưởng dùm chúng ta, cho phép chúng ta (có lẽ lần đầu tiên trong đời) được biết rằng sự kinh hoàng về cái chết chỉ có nguyên nhân là các ý niệm và hiểu biết sai lầm của chính mình mà thôi.\nTri kiến về sống, chết của Thầy vô cùng vi tế và đẹp đẽ. Cũng như những điều vi tế, đẹp đẽ khác, cách thưởng thức hay nhất là thiền quán trong thinh lặng. Lòng nhân hậu và từ bi phát xuất từ suối nguồn thâm tuệ của Thiền sư Thích Nhất Hạnh là một loại thuốc chữa lành những vết thương trong trái tim chúng ta.",
+  "createdAt": {
+    "$date": "2023-10-30T17:12:07.806Z"
+  },
+  "createdBy": {
+    "$oid": "653fce505f3affbdac7042b9"
+  },
+  "__v": 1,
+  "slug": "khong-diet-khong-sinh-djung-so-hai-(tb5)"
+},
+{
+  "_id": {
+    "$oid": "65170c02f854d0e8ed837802"
+  },
+  "name": "Nghệ Thuật Tư Duy Chiến Lược",
+  "price": 166000,
+  "stockQuantity": 122,
+  "categories": [
+    "Sách tiếng Việt",
+    "Sách kinh tế",
+    "Sách kỹ năng làm việc"
+  ],
+  "images": [
+    {
+      "$oid": "653fe58d0f049f4386c5f84a"
+    }
+  ],
+  "description": "Có phải những người chiến thắng các chương trình truyền hình thực tế được trời phú cho trí thông minh và kỹ năng hơn người?\nCó phải các nhà đầu tư vĩ đại có thể nhìn thấy những điều mà hầu hết mọi người bỏ lỡ?\nCó phải các tay chơi poker sở hữu những tài năng mà chúng ta không có?\nCâu trả lời cho tất cả những câu hỏi trên là 'Không hề!' Họ hoàn toàn 'bình thường', như bạn, như tôi hay bất cứ ai ngoài kia.\nThông qua Nghệ thuật tư duy chiến lược, bạn sẽ thấy 'những người thành công' trong mọi lĩnh vực từ giải trí đến chính trị, từ giáo dục đến thể thao, đạt thành công vang dội là nhờ luôn nắm vững lý thuyết trò chơi hay nghệ thuật tư duy chiến lược, với khả năng dự đoán những động thái tiếp theo của người cùng chơi, trong khi biết rõ rằng đối thủ đang cố gắng làm điều tương tự với mình.\nNgoài ra, bạn cũng sẽ nắm được những bí kíp vô cùng giản đơn để có thể áp dụng lý thuyết trò chơi vào cuộc sống lẫn công việc, từ đó sở hữu một cuộc đời đáng sống.",
+  "createdAt": {
+    "$date": "2023-10-30T17:12:07.806Z"
+  },
+  "createdBy": {
+    "$oid": "653fce505f3affbdac7042b9"
+  },
+  "__v": 1,
+  "slug": "nghe-thuat-tu-duy-chien-luoc"
+},
+{
+  "_id": {
+    "$oid": "65170c93f854d0e8ed837809"
+  },
+  "name": "Cây Cam Ngọt Của Tôi",
+  "price": 74500,
+  "stockQuantity": 2,
+  "categories": [
+    "Sách tiếng Việt",
+    "Sách văn học",
+    "Tiểu Thuyết"
+  ],
+  "images": [
+    {
+      "$oid": "653fe5d20f049f4386c5f853"
+    }
+  ],
+  "description": "\n“Vị chua chát của cái nghèo hòa trộn với vị ngọt ngào khi khám phá ra những điều khiến cuộc đời này đáng số một tác phẩm kinh điển của Brazil.”\n- Booklist\n“Một cách nhìn cuộc sống gần như hoàn chỉnh từ con mắt trẻ thơ… có sức mạnh sưởi ấm và làm tan nát cõi lòng, dù người đọc ở lứa tuổi nào.”\n- The National\nHãy làm quen với Zezé, cậu bé tinh nghịch siêu hạng đồng thời cũng đáng yêu bậc nhất, với ước mơ lớn lên trở thành nhà thơ cổ thắt nơ bướm. Chẳng phải ai cũng công nhận khoản “đáng yêu” kia đâu nhé. Bởi vì, ở cái xóm ngoại ô nghèo ấy, nỗi khắc khổ bủa vây đã che mờ mắt người ta trước trái tim thiện lương cùng trí tưởng tượng tuyệt vời của cậu bé con năm tuổi.\nCó hề gì đâu bao nhiêu là hắt hủi, đánh mắng, vì Zezé đã có một người bạn đặc biệt để trút nỗi lòng: cây cam ngọt nơi vườn sau. Và cả một người bạn nữa, bằng xương bằng thịt, một ngày kia xuất hiện, cho cậu bé nhạy cảm khôn sớm biết thế nào là trìu mến, thế nào là nỗi đau, và mãi mãi thay đổi cuộc đời cậu.\nMở đầu bằng những thanh âm trong sáng và kết thúc lắng lại trong những nốt trầm hoài niệm, Cây cam ngọt của tôi khiến ta nhận ra vẻ đẹp thực sự của cuộc sống đến từ những điều giản dị như bông hoa trắng của cái cây sau nhà, và rằng cuộc đời thật khốn khổ nếu thiếu đi lòng yêu thương và niềm trắc ẩn. Cuốn sách kinh điển này bởi thế không ngừng khiến trái tim người đọc khắp thế giới thổn thức, kể từ khi ra mắt lần đầu năm 1968 tại Brazil.\nTác giả:\nJOSÉ MAURO DE VASCONCELOS (1920-1984) là nhà văn người Brazil. Sinh ra trong một gia đình nghèo ở ngoại ô Rio de Janeiro, lớn lên ông phải làm đủ nghề để kiếm sống. Nhưng với tài kể chuyện thiên bẩm, trí nhớ phi thường, trí tưởng tượng tuyệt vời cùng vốn sống phong phú, José cảm thấy trong mình thôi thúc phải trở thành nhà văn nên đã bắt đầu sáng tác năm 22 tuổi. Tác phẩm nổi tiếng nhất của ông là tiểu thuyết mang màu sắc tự truyện Cây cam ngọt của tôi. Cuốn sách được đưa vào chương trình tiểu học của Brazil, được bán bản quyền cho hai mươi quốc gia và chuyển thể thành phim điện ảnh. Ngoài ra, José còn rất thành công trong vai trò diễn viên điện ảnh và biên kịch.",
+  "createdAt": {
+    "$date": "2023-10-30T17:12:07.806Z"
+  },
+  "createdBy": {
+    "$oid": "653fce505f3affbdac7042b9"
+  },
+  "__v": 1,
+  "slug": "cay-cam-ngot-cua-toi"
+},
+{
+  "_id": {
+    "$oid": "65170d50f854d0e8ed83780c"
+  },
+  "name": "Vượt lên trật tự - Tác giả Jordan B. Peterson",
+  "price": 280000,
+  "stockQuantity": 123,
+  "categories": [
+    "Sách tiếng việt",
+    "Sách kĩ năng sống",
+    "Sách tư duy"
+  ],
+  "images": [
+    {
+      "$oid": "653fefff70fcd73f27a37a0b"
+    },
+    {
+      "$oid": "653fefff70fcd73f27a37a0d"
+    },
+    {
+      "$oid": "653ff29e70fcd73f27a37a43"
+    }
+  ],
+  "description": "\nVƯỢT LÊN TRẬT TỰ\n'Vaccine' Nào Giúp Chúng Ta Sống Tốt Giữa Cuộc Đời Bất Định?\n'Ta phải đối diện với những hỗn độn liên tiếp này như thế nào?'\nChúng ta đang sống trong một thế giới có nhiều tổn thương bởi dịch bệnh, thảm hoa, thiên tai, nguy cơ chiến tranh, sự chia rẽ giàu – nghèo… Lần đầu tiên từ mấy thập kỷ nay, xã hội lại phải đối đầu với nhiều cuộc khủng hoảng đến cùng một lúc.\nĐiều này không khỏi khiến ta hoang mang tự đặt câu hỏi: 'Ta phải đối diện với những hỗn độn liên tiếp này như thế nào?' Nhưng 'Sự thật là thế giới luôn tồn tại những điều ta không biết và không thể dự đoán trước. Hỗn độn là sự bất thường, sự mới mẻ, sự bất định, sự biến đổi, sự đột biến, và sự thoái hóa khi những gì ta xem là hiển nhiên bỗng trở nên lung lay, nghiêng ngả.'\nBản chất của cuộc sống vốn là bất định, nhưng gần như con người có khuynh hướng bẩm sinh thích những thứ 'mang tính xác định', chúng ta luôn cố áp đặt lên thế giới những trật tự mặc dù những hiểu biết về cách thế giới vận hành của con người chưa bao giờ là đủ. Điều này vô hình chung khiến ta chìm trong hốt hoảng, bất lực mỗi khi rơi vào hỗn loạn trong một thế giới luôn biến đổi không ngừng. Chúng ta trở nên yếu đuối và kiệt quệ tinh thần vì những sự đổi thay diễn ra theo cách ta không ngờ tới; vì thế, để có khả năng chống lại những đả kích của biến đổi, chỉ có một cách duy nhất đó là: vượt ra khỏi trật tự để đối diện với hỗn độn.\nVượt lên trật tự: Liều thuốc giải độc cho vực thẳm và bóng tối\nVậy là cuốn sách tiếp theo Vượt Lên Trật Tự của Giáo sư Jordan Peterson ra đời như một liều thuốc giải giúp bạn giải quyết những biến động, rối loạn và bất định. Vẫn là 12 quy luật, nhưng khác với '12 rules for life', 12 bộ quy tắc như một 'cứu cánh' giúp bạn nhận ra rằng trật tự thực ra rất mong manh, rằng 'Con người vốn yếu đuối. Vì thế, cuộc sống luôn khó khăn và đau khổ thì đầy rẫy.' Và 'để xoa dịu những khổ đau đó (như đảm bảo mọi người đều có đủ thức ăn, nước sạch và một nơi ở đàng hoàng, sạch sẽ), chúng ta cần đến sự mạnh dạn sáng tạo, nỗ lực và năng lực.'\nVới quyển sách này, bạn không cần đọc từ chương đầu đến chương cuối, chỉ cần lật giở một trang sách bất kì, bạn sẽ nhận được những kỹ năng đương đầu với rủi ro, hỗn độn từ Jordan Peterson. Xuyên suốt 12 quy luật là thông điệp có giá trị từ Kinh Thánh, từ những biến cố, các câu chuyện thực tế trong chính cuộc sống của tác giả.12 quy tắc của giáo sư Peterson  khuyến khích người đọc tiếp cận với lĩnh vực xa hơn. Đây là điều cần thiết để thích nghi với một thế giới luôn thay đổi. Những quy tắc này sẽ là kim chỉ nam giúp bạn tìm thấy mấu chốt cho câu hỏi: Ta phải làm gì khi rơi vào nghịch cảnh? 12 quy tắc của giáo sư Peterson  khuyến khích người đọc tiếp cận với lĩnh vực xa hơn. Đây là điều cần thiết để thích nghi với một thế giới luôn thay đổi.\nVì suy cho cùng, có bao nhiêu người dễ dàng đi qua những đau khổ, bệnh tật, tai ương mà vẫn học được cách vượt lên và đối diện với nó? Cách duy nhất đó là hãy chuẩn bị trước cho những hỗn độn sẽ có thể xuất hiện vào lúc chúng ta mất cảnh giác nhất, để từ đó, bạn biết cách 'giữ lòng biết ơn giữa nghịch cảnh' trong kỷ nguyên đầy bất định này.\n#saigonbooks\n----\nTác giả Jordan B. Peterson\nCông ty phát hành Saigon Books\nMã sản phẩm 8935278606765\nNhà xuất bản NXB Thế Giới\nKích thước 15,5 x 23,5 cm\nSố trang: 408\nNăm phát hành 6/2022",
+  "createdAt": {
+    "$date": "2023-10-30T17:12:07.806Z"
+  },
+  "createdBy": {
+    "$oid": "653fce505f3affbdac7042b9"
+  },
+  "__v": 3,
+  "slug": "vuot-len-trat-tu-tac-gia-jordan-b.-peterson"
+},
+{
+  "_id": {
+    "$oid": "65170e27f854d0e8ed83780f"
+  },
+  "name": "Sách mùa hè không tên - Nguyễn Nhật Ánh ( tặng bookmark ) NXBT",
+  "price": 107900,
+  "stockQuantity": 123,
+  "categories": [
+    "Sách tiếng Việt",
+    "Sách văn học",
+    "Tranh Truyện"
+  ],
+  "images": [
+    {
+      "$oid": "653ff0ee70fcd73f27a37a1c"
+    },
+    {
+      "$oid": "653ff0ee70fcd73f27a37a1d"
+    },
+    {
+      "$oid": "653ff0ee70fcd73f27a37a1e"
+    }
+  ],
+  "description": "\nNhà văn Nguyễn Nhật Ánh sẽ kể gì trong Mùa hè không tên? Đó là nỗi luyến tiếc những trò tinh nghịch, sự mừng rỡ khi mùa tựu trường đến, sự hồ hởi khi gặp lại bạn cũ, làm quen bạn mới...?\nKhi đọc sách, bạn sẽ được gặp nhân vật Khang thích leo cây hái trái. Đó là con Nhàn hồn hậu đáng yêu ưa nuôi bọn cá dị tật. Ngoài ra, còn có Tí, Chỉnh, Túc, Đính… Các bạn trẻ sẽ phải đối mặt với những thử thách của số phận.\nTheo thời gian, tình bạn trong sáng dần trôi qua. Thay vào đó là những câu chuyện tình thân, nỗi khát khao hạnh phúc êm đềm. \nĐó là sự khắc khoải với những bỡ ngỡ khi bước vào tuổi mới lớn...\nMột trong những trang minh họa rất dễ thương in kèm sách\nSách có 2 phiên bản: Bản thường tặng kèm 1 bookmark bế góc, 1 tranh minh họa. Bản bìa cứng in màu kèm 25 tranh minh họa đặc sắc. Tặng kèm 1 bookmark bế góc, 1 tranh minh họa, 1 miếng lót li.\nĐặc biệt, trên các bookmark có in bài thơ Mười năm rất dễ thương, trích từ trong truyện. Đây là phụ kiện sưu tập độc đáo mà bạn không thể bỏ qua.\nTranh minh họa đặc sắc qua nét vẽ của họa sĩ Đỗ Hoàng Tường \nVới Mùa hè không tên, nhà văn Nguyễn Nhật Ánh đã gửi gắm thông điệp sống đẹp đến bạn đọc.\nĐồng thời, tác giả còn khơi dậy niềm khao khát sống tử tế trong tim mọi người.\nTác giả: Nguyễn Nhật Ánh\nKhổ sách: 13x20cm\nSố trang: 292\nGiá bán: 230,000 VNĐ\nISBN: 978-604-1-23775-9\nIn lần thứ 1 năm 202\nnhà phát hành : nxb trẻ",
+  "createdAt": {
+    "$date": "2023-10-30T18:03:40.265Z"
+  },
+  "createdBy": {
+    "$oid": "653fce505f3affbdac7042b9"
+  },
+  "__v": 1,
+  "slug": "sach-mua-he-khong-ten-nguyen-nhat-anh-(-tang-bookmark-)-nxbt"
+},
+{
+  "_id": {
+    "$oid": "65170f50f854d0e8ed837812"
+  },
+  "name": "Muôn Kiếp Nhân Sinh 3 (Bìa Mềm)",
+  "price": 146000,
+  "stockQuantity": 31,
+  "categories": [
+    "Sách tiếng Việt",
+    "Sách Tôn Giáo - Tâm Linh"
+  ],
+  "images": [
+    {
+      "$oid": "653ff18370fcd73f27a37a28"
+    },
+    {
+      "$oid": "653ff18370fcd73f27a37a29"
+    },
+    {
+      "$oid": "653ff18370fcd73f27a37a2a"
+    },
+    {
+      "$oid": "653ff18370fcd73f27a37a2b"
+    }
+  ],
+  "description": "\nNối tiếp câu chuyện và tinh thần của tập 1 và tập 2, 'Muôn Kiếp Nhân Sinh – tập 3' tiếp tục đưa bạn đọc đi qua hành trình thức tỉnh tâm linh của nhân vật chính Thomas. Không chỉ là hồi tiếp theo trong chuyến phiêu lưu của linh hồn, tập mới nhất và cũng là tập cuối cùng của bộ sách sẽ bàn luận sâu hơn về hiện tại và tương lai của nhân loại, đồng thời nhẹ nhàng khép lại câu chuyện tiền kiếp nhiều trăn trở, nhiều bài học của Thomas và giải đáp những câu hỏi còn bỏ ngỏ từ hai tập trước. Nếu tập 1 và tập 2 tập trung lý giải hai quy luật vũ trụ là Nhân quả và Luân hồi, thì tập 3 bàn về khía cạnh đạo đức của con người, đặc biệt là lòng tham và cực đối lập của nó – thái độ sống cho đi. Qua đó, tác giả cùng nhân vật chính Thomas và bậc thầy giác ngộ Kris đã gửi gắm vào quyển sách những thông điệp mạnh mẽ về tương lai nhân loại. Nếu con người muốn thay đổi tương lai, trước hết phải bắt đầu bằng thay đổi tâm thức. Thay đổi tâm thức bắt nguồn từ việc hiểu rằng, tự do ý chí của con người là một phép thử, cho phép chúng ta lựa chọn cái tốt hoặc cái xấu. Và việc lựa chọn cái tốt mới là nền tảng cho mọi sự thay đổi trong tương lai. Mấu chốt của cuộc cách mạng chuyển đổi tâm thức là để ánh sáng tâm linh trong mỗi người có cơ hội phát triển. Khi ánh sáng khoa học và tâm linh kết hợp sẽ có thể dẫn đường cho nhân loại đi đến nền tảng trí tuệ cao hơn. \n Trong một chiêm nghiệm khác, nhân vật của chúng ta được khai ngộ về các giác quan tinh thần, hay giác quan linh hồn, qua đó trả lời cho câu hỏi lớn của cuộc đời – 'Ta là ai?', đồng thời hiểu được rằng, con người càng chú trọng nhu cầu thân xác bao nhiêu thì nhu cầu tâm linh càng bị hạn chế bấy nhiêu. Do đó, muốn phát triển giác quan linh hồn thì ta phải biết giới hạn hoạt động của giác quan thân xác. Thiền định hay các hình thức tu tập tĩnh tâm khác chính là phương pháp giúp khai mở các giác quan này, từ đó đưa con người đến với trí tuệ thật sự. Vẫn bằng giọng văn giản dị và chừng mực, tác giả Nguyên Phong một lần nữa đưa độc giả đi qua các kiếp sống khác nhau, từ Hy Lạp, La Mã, đến Pháp thời trung cổ, rồi quay về nước Mỹ hiện đại. Ở đó, ta được trải nghiệm những hoàn cảnh khác nhau, đồng cảm với nỗi đau của nhân vật và chứng kiến sự trưởng thành của trí tuệ, để lần nữa khẳng định được rằng chính ý nghĩ, lời nói và hành động của chúng ta ở kiếp này sẽ dẫn dắt chúng ta đi về đâu ở kiếp sau. Chẳng có thần linh hay thế lực nào quyết định, chúng ta hoàn toàn chịu trách nhiệm về cuộc đời mình. \n Những cuộc đối thoại dài chứa đầy kiến thức, chiêm nghiệm cùng các câu hỏi gợi mở đã luôn là đặc tính của bộ sách 'Muôn Kiếp Nhân Sinh', và sự trở lại lần này với tác phẩm mới nhất cũng không đánh mất bản sắc ấy. Với vai trò khép lại câu\nchuyện, 'Muôn Kiếp Nhân Sinh – tập 3' đã xâu chuỗi lại những mối liên hệ tiền kiếp, vừa làm sáng tỏ cách vận hành của luật Nhân quả và Luân hồi vừa giúp chúng ta thấu hiểu và trân trọng những nhân duyên gặp gỡ của mình trong hiện tại. Thông qua 10 chương sách đan xen giữa quá khứ và hiện tại, giữa kể chuyện và lý luận, giữa hiện thực và huyền ảo, cuốn sách gợi ra những suy tư về vị thế và vai trò của con người nhỏ bé giữa vũ trụ bao la. Sau cùng, bảo toàn và phát huy tinh thần của hai tập trước, 'Muôn Kiếp Nhân Sinh – tập 3' tiếp tục là một nỗ lực góp phần đưa con người về nẻo thiện, hướng đến một nhân loại hòa bình, bác ái, vị tha, bất kể màu da, quốc tịch và tôn giáo. \n Về tác giả: \n Nguyên Phong (John Vu) tên thật là Vũ Văn Du, ông sống ở Mỹ từ năm 1968. John Vu là Giáo sư ưu tú ngành Khoa học Máy tính, Giám đốc Chương trình Đổi mới Công nghệ Sinh học và Tính toán (Biotechnology Innovation and Computation), đồng Giám đốc chương trình Trí tuệ Nhân tạo (Artificial Intelligence) tại Đại học Carnegie Mellon. Hiện ông đã nghỉ hưu. \n Trước khi bước vào giới học viện giảng dạy, John là Kỹ sư trưởng và Technical Fellow (chức danh danh dự cao cấp nhất của chuyên viên kỹ thuật) tại Công ty Boeing. Tại đây, ông đã dẫn dắt thành công một số chương trình nghiên cứu không gian vũ trụ, bao gồm cải tiến phần mềm cho máy bay 777. John có hơn 35 năm kinh nghiệm trong lĩnh vực phát triển phần mềm và hệ thống, cũng như quản lý một số chương trình tích hợp quy mô lớn, trong đó sản phẩm cuối cùng đòi hỏi tích hợp các thành phần nội bộ với các sản phẩm thương mại có sẵn trên thị trường và các nhà cung cấp thuê ngoài. \n Nguyên Phong là bút danh ông dùng cho bộ sách văn hóa tâm linh được dịch, viết phóng tác từ trải nghiệm, tiềm thức và quá\ntrình nghiên cứu, khám phá các giá trị tinh thần phương Đông. Ông đã viết phóng tác tác phẩm bất hủ 'Hành trình về Phương Đông' năm 24 tuổi (1974). \nCác tác phẩm khác của Nguyên Phong được bạn đọc nhiều thế hệ yêu thích: Ngọc sáng trong hoa sen, Bên rặng tuyết sơn, Hoa\nsen trên tuyết, Hoa trôi trên sóng nước, Huyền thuật và các đạo sĩ Tây Tạng, Trở về từ xứ tuyết, Trở về từ cõi sáng, Minh triết trong đời sống, Đường mây qua xứ tuyết, Muôn kiếp nhân sinh, Đường mây trên cõi mộng, Đường mây trên đất hoa… và bộ sách dành cho sinh viên, thầy cô.",
+  "createdAt": {
+    "$date": "2023-10-30T18:03:40.265Z"
+  },
+  "createdBy": {
+    "$oid": "653fce505f3affbdac7042b9"
+  },
+  "__v": 1,
+  "slug": "muon-kiep-nhan-sinh-3-(bia-mem)"
+}]

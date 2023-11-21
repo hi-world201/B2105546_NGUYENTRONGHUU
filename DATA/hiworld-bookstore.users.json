@@ -1,0 +1,122 @@
+[{
+  "_id": {
+    "$oid": "653fce505f3affbdac7042b9"
+  },
+  "email": "staff1@gmail.com",
+  "password": "$2b$10$2i/Gvg0aJ1KRG5p74TsipuErSBiz2X.DGEMNBxX1ef8cMeP8kciMC",
+  "role": "staff",
+  "active": true,
+  "passwordChangedAt": {
+    "$date": "2023-10-30T15:40:00.222Z"
+  },
+  "__v": 0,
+  "fullname": "",
+  "telephone": "0123422322"
+},
+{
+  "_id": {
+    "$oid": "653fcf735f3affbdac7042be"
+  },
+  "email": "staff2@gmail.com",
+  "password": "$2b$10$khyXoYIuALc1qGO4WQpLRO5P.hXCDmswTPUiD1sHDf85V19O4mIiC",
+  "role": "staff",
+  "active": true,
+  "passwordChangedAt": {
+    "$date": "2023-10-30T15:44:51.833Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653fcf835f3affbdac7042c0"
+  },
+  "email": "staff3@gmail.com",
+  "password": "$2b$10$RaYaFNmNVtss7/W3fAfo8e3j45TW1.TXdaxXTmZFmBxhqOxK2KFRe",
+  "role": "staff",
+  "active": false,
+  "passwordChangedAt": {
+    "$date": "2023-10-30T15:45:07.100Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653fcfa55f3affbdac7042c2"
+  },
+  "email": "hiworld.admin@gmail.com",
+  "password": "$2b$10$7tgTEldpIJ4bKI4bKGMqAOPiUvqjg2rXIwrjb3Gy8oC/q5WnFthNO",
+  "role": "admin",
+  "active": true,
+  "passwordChangedAt": {
+    "$date": "2023-10-30T15:54:36.016Z"
+  },
+  "__v": 0,
+  "fullname": "Nguyen Trong Huu",
+  "telephone": "123456"
+},
+{
+  "_id": {
+    "$oid": "653fcfd65f3affbdac7042c4"
+  },
+  "email": "customer1@gmail.com",
+  "password": "$2b$10$9mMS/lS16cgybpZrV5yY/eaQXJrYxkm9kde1oJMPnRgUDIPz7pfnO",
+  "role": "customer",
+  "active": true,
+  "passwordChangedAt": {
+    "$date": "2023-10-30T15:46:30.431Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653fcfea5f3affbdac7042c6"
+  },
+  "email": "customer2@gmail.com",
+  "password": "$2b$10$QQnNrkmXmsvR6dDEu/EeAexNY8bwbdeI7tfCevNzgJxe97cYRR986",
+  "role": "customer",
+  "active": true,
+  "passwordChangedAt": {
+    "$date": "2023-10-30T15:46:50.226Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653fcff55f3affbdac7042c8"
+  },
+  "email": "customer3@gmail.com",
+  "password": "$2b$10$0V9DtSujMLWJjtKHYnx/debNk4.ojgl1LfX4OSFrS2XFoyb7O52B.",
+  "role": "customer",
+  "active": false,
+  "passwordChangedAt": {
+    "$date": "2023-10-30T15:47:01.788Z"
+  },
+  "userActiveToken": "2ca7bb08444361d8613f9038a0f20dad546c35748c874825d44985be60c17a47",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653fcffe5f3affbdac7042ca"
+  },
+  "email": "customer4@gmail.com",
+  "password": "$2b$10$HJyUPVG4uAVJoEF/EiMkfObWUDHQqQKrvM/VbHbyV7Ci0m0u0VfEC",
+  "role": "customer",
+  "active": true,
+  "passwordChangedAt": {
+    "$date": "2023-10-30T15:47:10.544Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653fd01a5f3affbdac7042cc"
+  },
+  "email": "customer5@gmail.com",
+  "password": "$2b$10$n7K7RV.l9iTuOmBgVBFC0edpYpf3BZckDY3p5VuASmCO8lRa7jUXa",
+  "role": "customer",
+  "active": true,
+  "passwordChangedAt": {
+    "$date": "2023-10-30T15:47:38.819Z"
+  },
+  "__v": 0
+}]
