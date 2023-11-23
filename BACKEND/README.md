@@ -13,13 +13,13 @@ HiworldBookStore là một ứng dụng web để quản lý và buôn bán sác
 1. Sao chép kho lưu trữ:
 
    ```bash
-   git clone https://github.com/your-username/hiworldbookstore.git
+   git clone https://github.com/hi-world201/B2105546_NGUYENTRONGHUU.git
    ```
 
 2. Di chuyển đến thư mục dự án:
 
    ```bash
-   cd hiworldbookstore
+   cd B2105546_NGUYENTRONGHUU/BACKEND
    ```
 
 3. Cài đặt tất cả các gói cần thiết:
@@ -37,7 +37,8 @@ Trước khi chạy máy chủ, bạn cần cấu hình ứng dụng. Thực hi�
 2. Đổi tên tệp thành `config.env`:
 
    ```bash
-   mv config.sample.env config.env
+   mv config.sample.env config.env # Đối với bash
+   ren config.sample.env config.env
    ```
 
 3. Mở `config.env` và cập nhật các biến cấu hình cần thiết.

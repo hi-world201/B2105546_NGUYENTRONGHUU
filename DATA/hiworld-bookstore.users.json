@@ -3,11 +3,11 @@
     "$oid": "653fce505f3affbdac7042b9"
   },
   "email": "staff1@gmail.com",
-  "password": "$2b$10$2i/Gvg0aJ1KRG5p74TsipuErSBiz2X.DGEMNBxX1ef8cMeP8kciMC",
+  "password": "$2b$10$c5/hAH3cTHTTxlczHHDpquJjsvtew7etAEC5a40qLvI8g4DZoN6Jy",
   "role": "staff",
   "active": true,
   "passwordChangedAt": {
-    "$date": "2023-10-30T15:40:00.222Z"
+    "$date": "2023-11-23T00:00:14.775Z"
   },
   "__v": 0,
   "fullname": "",
@@ -51,8 +51,8 @@
     "$date": "2023-10-30T15:54:36.016Z"
   },
   "__v": 0,
-  "fullname": "Nguyen Trong Huu",
-  "telephone": "123456"
+  "fullname": "Hiworld Admin",
+  "telephone": "0965320000"
 },
 {
   "_id": {
@@ -65,7 +65,10 @@
   "passwordChangedAt": {
     "$date": "2023-10-30T15:46:30.431Z"
   },
-  "__v": 0
+  "__v": 0,
+  "address": "Ngọc Tố, Mỹ Xuyên, Sóc Trăng",
+  "fullname": "Huỳnh Thị Ngọc Thảo",
+  "telephone": "0923243423"
 },
 {
   "_id": {
@@ -87,12 +90,15 @@
   "email": "customer3@gmail.com",
   "password": "$2b$10$0V9DtSujMLWJjtKHYnx/debNk4.ojgl1LfX4OSFrS2XFoyb7O52B.",
   "role": "customer",
-  "active": false,
+  "active": true,
   "passwordChangedAt": {
     "$date": "2023-10-30T15:47:01.788Z"
   },
   "userActiveToken": "2ca7bb08444361d8613f9038a0f20dad546c35748c874825d44985be60c17a47",
-  "__v": 0
+  "__v": 0,
+  "address": "95/9 Mậu Thân, Phường Xuân Khánh, Quận Ninh Kiều, Cần Thơ",
+  "fullname": "Nguyễn Trọng Hữu",
+  "telephone": "0965320555"
 },
 {
   "_id": {
@@ -105,7 +111,10 @@
   "passwordChangedAt": {
     "$date": "2023-10-30T15:47:10.544Z"
   },
-  "__v": 0
+  "__v": 0,
+  "address": "Đường Abc, Quận 7, Cà Mau",
+  "fullname": "Lê Triệu Vĩ",
+  "telephone": "0923422344"
 },
 {
   "_id": {

@@ -1,0 +1,218 @@
+[{
+  "_id": {
+    "$oid": "655e94157d82d52daa57da06"
+  },
+  "user": {
+    "$oid": "653fcff55f3affbdac7042c8"
+  },
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "65170b7af854d0e8ed8377ff"
+      },
+      "quantity": 1,
+      "price": 70000,
+      "_id": {
+        "$oid": "655e94157d82d52daa57da07"
+      }
+    },
+    {
+      "product": {
+        "$oid": "6517088d9a763d6582ce8c60"
+      },
+      "quantity": 1,
+      "price": 118000,
+      "_id": {
+        "$oid": "655e94157d82d52daa57da08"
+      }
+    }
+  ],
+  "fullname": "Nguyễn Trọng Hữu",
+  "shippingAddress": "95/9 Mậu Thân, Phường Xuân Khánh, Quận Ninh Kiều, Cần Thơ",
+  "telephone": "0965320555",
+  "totalPrice": 188000,
+  "status": [
+    {
+      "status": "pending",
+      "updatedBy": {
+        "$oid": "653fcff55f3affbdac7042c8"
+      },
+      "_id": {
+        "$oid": "655e94157d82d52daa57da09"
+      },
+      "updatedAt": {
+        "$date": "2023-11-22T23:51:49.541Z"
+      }
+    },
+    {
+      "status": "accepted",
+      "updatedBy": {
+        "$oid": "653fcfa55f3affbdac7042c2"
+      },
+      "_id": {
+        "$oid": "655e94cc7d82d52daa57dab8"
+      },
+      "updatedAt": {
+        "$date": "2023-11-22T23:54:52.972Z"
+      }
+    },
+    {
+      "status": "shipping",
+      "updatedBy": {
+        "$oid": "653fce505f3affbdac7042b9"
+      },
+      "_id": {
+        "$oid": "655e98977d82d52daa57dbac"
+      },
+      "updatedAt": {
+        "$date": "2023-11-23T00:11:03.338Z"
+      }
+    }
+  ],
+  "currentStatus": "shipping",
+  "updatedAt": {
+    "$date": "2023-11-23T00:11:03.338Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "655e944b7d82d52daa57da3a"
+  },
+  "user": {
+    "$oid": "653fcffe5f3affbdac7042ca"
+  },
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "65170afdf854d0e8ed8377fc"
+      },
+      "quantity": 1,
+      "price": 109000,
+      "_id": {
+        "$oid": "655e944b7d82d52daa57da3b"
+      }
+    }
+  ],
+  "fullname": "Lê Triệu Vĩ",
+  "shippingAddress": "Đường Abc, Quận 7, Cà Mau",
+  "telephone": "0923422322",
+  "totalPrice": 109000,
+  "status": [
+    {
+      "status": "pending",
+      "updatedBy": {
+        "$oid": "653fcffe5f3affbdac7042ca"
+      },
+      "_id": {
+        "$oid": "655e944b7d82d52daa57da3c"
+      },
+      "updatedAt": {
+        "$date": "2023-11-22T23:52:43.804Z"
+      }
+    }
+  ],
+  "currentStatus": "pending",
+  "updatedAt": {
+    "$date": "2023-11-22T23:52:43.804Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "655e94ae7d82d52daa57da6f"
+  },
+  "user": {
+    "$oid": "653fcfd65f3affbdac7042c4"
+  },
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "65170d50f854d0e8ed83780c"
+      },
+      "quantity": 2,
+      "price": 280000,
+      "_id": {
+        "$oid": "655e94ae7d82d52daa57da70"
+      }
+    }
+  ],
+  "fullname": "Huỳnh Thị Ngọc Thảo",
+  "shippingAddress": "Ngọc Tố, Mỹ Xuyên, Sóc Trăng",
+  "telephone": "0923243423",
+  "totalPrice": 560000,
+  "status": [
+    {
+      "status": "pending",
+      "updatedBy": {
+        "$oid": "653fcfd65f3affbdac7042c4"
+      },
+      "_id": {
+        "$oid": "655e94ae7d82d52daa57da71"
+      },
+      "updatedAt": {
+        "$date": "2023-11-22T23:54:22.197Z"
+      }
+    },
+    {
+      "status": "cancelled",
+      "updatedBy": {
+        "$oid": "653fcfd65f3affbdac7042c4"
+      },
+      "_id": {
+        "$oid": "655e94b97d82d52daa57da83"
+      },
+      "updatedAt": {
+        "$date": "2023-11-22T23:54:33.978Z"
+      }
+    }
+  ],
+  "currentStatus": "cancelled",
+  "updatedAt": {
+    "$date": "2023-11-22T23:54:33.978Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "655e98d77d82d52daa57dbe4"
+  },
+  "user": {
+    "$oid": "653fcff55f3affbdac7042c8"
+  },
+  "orderItems": [
+    {
+      "product": {
+        "$oid": "65170c93f854d0e8ed837809"
+      },
+      "quantity": 1,
+      "price": 74500,
+      "_id": {
+        "$oid": "655e98d77d82d52daa57dbe5"
+      }
+    }
+  ],
+  "fullname": "Nguyễn Trọng Hữu",
+  "shippingAddress": "95/9 Mậu Thân, Phường Xuân Khánh, Quận Ninh Kiều, Cần Thơ",
+  "telephone": "0965320555",
+  "totalPrice": 74500,
+  "status": [
+    {
+      "status": "pending",
+      "updatedBy": {
+        "$oid": "653fcff55f3affbdac7042c8"
+      },
+      "_id": {
+        "$oid": "655e98d77d82d52daa57dbe6"
+      },
+      "updatedAt": {
+        "$date": "2023-11-23T00:12:07.036Z"
+      }
+    }
+  ],
+  "currentStatus": "pending",
+  "updatedAt": {
+    "$date": "2023-11-23T00:12:07.036Z"
+  },
+  "__v": 0
+}]
