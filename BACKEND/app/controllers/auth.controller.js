@@ -24,7 +24,7 @@ const createActiveLink = (req, activeToken) => {
 };
 
 const createResetLink = (req, resetToken) => {
-  return `<a href="${process.env.FRONTEND_RESET_PASSWORD_URL}/${resetToken}>Reset now</a>
+  return `<a href="${process.env.FRONTEND_RESET_PASSWORD_URL}/${resetToken}">Reset now</a>
   or (if you only use api)
   <a href="${req.protocol}://${req.headers.host}/api/v1/users/resetPassword/${resetToken}>Patch here</a>`;
 };
