@@ -30,7 +30,8 @@ const sendMail = async (mail) => {
     const mailOptions = {
       to: mail.to,
       subject: mail.subject,
-      text: mail.text,
+      // text: mail.text,
+      html: mail.text,
     };
 
     await transporter.sendMail(mailOptions);
