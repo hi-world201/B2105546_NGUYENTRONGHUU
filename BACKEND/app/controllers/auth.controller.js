@@ -18,13 +18,15 @@ const signToken = (id) => {
 
 //  Create link to send mail
 const createActiveLink = (req, activeToken) => {
-  return `${process.env.FRONTEND_ACTIVE_URL}/${activeToken}
-  or ${req.protocol}://${req.headers.host}/api/v1/users/active/${activeToken}`;
+  return `<a href="${process.env.FRONTEND_ACTIVE_URL}/${activeToken}">Active now</a>
+  or (if you only use api)
+  <a href="${req.protocol}://${req.headers.host}/api/v1/users/active/${activeToken}">Patch here</a>`;
 };
 
 const createResetLink = (req, resetToken) => {
-  return `${process.env.FRONTEND_RESET_PASSWORD_URL}/${resetToken}
-  or ${req.protocol}://${req.headers.host}/api/v1/users/resetPassword/${resetToken}`;
+  return `<a href="${process.env.FRONTEND_RESET_PASSWORD_URL}/${resetToken}>Reset now</a>
+  or (if you only use api)
+  <a href="${req.protocol}://${req.headers.host}/api/v1/users/resetPassword/${resetToken}>Patch here</a>`;
 };
 
 exports.signup = async (req, res, next) => {
