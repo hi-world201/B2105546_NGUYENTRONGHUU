@@ -22,15 +22,4 @@
 
 <script setup></script>
 
-<style scoped>
-.banner {
-  background-image: url('@/assets/img/bookworld.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  height: 300px;
-  width: 100%;
-}
-</style>
 

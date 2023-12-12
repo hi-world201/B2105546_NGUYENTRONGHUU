@@ -17,11 +17,11 @@ const formDataConfig = {
 export default (baseURL) => {
   return {
     json: axios.create({
-      baseURL,
+      baseURL: `${import.meta.env.VITE_BACKEND_URL}${baseURL}`,
       ...commonConfig,
     }),
     formData: axios.create({
-      baseURL,
+      baseURL: `${import.meta.env.VITE_BACKEND_URL}${baseURL}`,
       ...formDataConfig,
     }),
   };
