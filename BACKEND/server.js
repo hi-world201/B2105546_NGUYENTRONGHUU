@@ -14,7 +14,7 @@ async function startServer() {
     console.log(`Connect to ${MONGODB_LOCAL} successfully!`);
 
     // App listen
-    app.listen(PORT, URL);
+    app.listen(PORT);
 
     console.log(`Server is running on port ${URL}:${PORT}`);
   } catch (err) {
