@@ -12,10 +12,9 @@ export default defineConfig({
     },
   },
   server: {
-    port: 8081,
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:8080',
+        target: 'https://hiworld-bookstore.onrender.com',
         changeOrigin: true,
       },
     },
