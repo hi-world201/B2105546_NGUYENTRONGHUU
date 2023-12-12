@@ -16,6 +16,7 @@ const app = express();
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev')); // Use for dev
 }
+app.set('trust proxy', 1);
 app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
