@@ -1,105 +1,86 @@
-const ApiError = require('../utils/ApiError');
-const MongooseQuery = require('../utils/MongooseQuery');
+const ApiError = require('../utils/error.util');
+const MongooseQuery = require('../utils/query.util');
+const catchAsync = require('../utils/catchAsync.util');
+
 const Product = require('../models/product.model');
 const Image = require('../models/image.model');
 
-exports.searchProduct = async (req, res, next) => {
-  try {
-    req.query.slug = { $regex: req.query.slug, $options: 'i' };
-    next();
-  } catch (err) {
-    return next(err);
+exports.searchProduct = catchAsync(async (req, res, next) => {
+  req.query.slug = { $regex: req.query.slug, $options: 'i' };
+  next();
+});
+
+exports.getAllProduct = catchAsync(async (req, res, next) => {
+  let mongooseQuery = new MongooseQuery(Product.find(), { ...req.query });
+  mongooseQuery.filter().sort().paginate();
+
+  const products = await mongooseQuery.query;
+
+  res.status(200).json({
+    status: 'success',
+    data: products,
+  });
+});
+
+exports.getProduct = catchAsync(async (req, res, next) => {
+  const product = await Product.findById(req.params.productId).populate({
+    path: 'createdBy',
+  });
+
+  if (!product) {
+    return next(new ApiError(404, 'No product found with that ID'));
   }
-};
 
-exports.getAllProduct = async (req, res, next) => {
-  try {
-    let mongooseQuery = new MongooseQuery(Product.find(), { ...req.query });
-    mongooseQuery.filter().sort().paginate();
+  res.status(200).json({
+    status: 'success',
+    data: product,
+  });
+});
 
-    const products = await mongooseQuery.query;
+exports.createProduct = catchAsync(async (req, res, next) => {
+  const userId = req.user.id;
+  const payload = { ...req.body, createdBy: userId };
+  payload.images = [];
 
-    res.status(200).json({
-      status: 'success',
-      data: products,
-    });
-  } catch (err) {
-    return next(err);
+  const product = await Product.create(payload);
+
+  res.status(201).json({
+    status: 'success',
+    data: product,
+  });
+});
+
+exports.updateProduct = catchAsync(async (req, res, next) => {
+  const product = await Product.findByIdAndUpdate(
+    req.params.productId,
+    { ...req.body },
+    { new: true, runValidators: true },
+  );
+
+  if (!product) {
+    return next(new ApiError(404, 'No product found with that ID'));
   }
-};
 
-exports.getProduct = async (req, res, next) => {
-  try {
-    const product = await Product.findById(req.params.productId).populate({ path: 'createdBy' });
+  res.status(200).json({
+    status: 'success',
+    data: product,
+  });
+});
 
-    if (!product) {
-      return next(new ApiError(404, 'No product found with that ID'));
-    }
+exports.deleteProduct = catchAsync(async (req, res, next) => {
+  const product = await Product.findByIdAndDelete(req.params.productId);
 
-    res.status(200).json({
-      status: 'success',
-      data: product,
-    });
-  } catch (err) {
-    return next(err);
+  if (!product) {
+    return next(new ApiError(404, 'No product found with that ID'));
   }
-};
 
-exports.createProduct = async (req, res, next) => {
-  try {
-    const userId = req.user.id;
-    const payload = { ...req.body, createdBy: userId };
-    payload.images = [];
+  product.images.forEach(async image => {
+    await Image.findByIdAndDelete(image);
+  });
 
-    const product = await Product.create(payload);
+  res.status(204).json({
+    status: 'success',
+    data: product,
+  });
+});
 
-    res.status(201).json({
-      status: 'success',
-      data: product,
-    });
-  } catch (err) {
-    return next(err);
-  }
-};
-
-exports.updateProduct = async (req, res, next) => {
-  try {
-    const product = await Product.findByIdAndUpdate(
-      req.params.productId,
-      { ...req.body },
-      { new: true, runValidators: true },
-    );
-
-    if (!product) {
-      return next(new ApiError(404, 'No product found with that ID'));
-    }
-
-    res.status(200).json({
-      status: 'success',
-      data: product,
-    });
-  } catch (err) {
-    return next(err);
-  }
-};
-
-exports.deleteProduct = async (req, res, next) => {
-  try {
-    const product = await Product.findByIdAndDelete(req.params.productId);
-
-    if (!product) {
-      return next(new ApiError(404, 'No product found with that ID'));
-    }
-
-    product.images.forEach(async (image) => {
-      await Image.findByIdAndDelete(image);
-    });
-
-    res.status(204).json({
-      status: 'success',
-      data: product,
-    });
-  } catch (err) {
-    return next(err);
-  }
-};

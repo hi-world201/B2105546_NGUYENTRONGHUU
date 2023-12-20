@@ -1,7 +1,10 @@
+const fs = require('fs').promises;
+
+const ApiError = require('../utils/error.util');
+const catchAsync = require('../utils/catchAsync.util');
+
 const Image = require('../models/image.model');
 const Product = require('../models/product.model');
-const ApiError = require('../utils/ApiError');
-const fs = require('fs').promises;
 
 exports.createProductImage = async (req, res, next) => {
   try {
@@ -12,7 +15,7 @@ exports.createProductImage = async (req, res, next) => {
     }
     // Get image buffers and remove from the file system
     const imageBuffers = await Promise.all(
-      req.files.map(async (file) => {
+      req.files.map(async file => {
         const fileBuffer = await fs.readFile(file.path);
         return {
           name: file.filename,
@@ -25,7 +28,7 @@ exports.createProductImage = async (req, res, next) => {
     const images = await Image.create(imageBuffers);
 
     // // Insert image IDs into the product
-    product.images.push(...images.map((image) => image._id));
+    product.images.push(...images.map(image => image._id));
     await product.save();
 
     res.status(201).json({
@@ -34,50 +37,44 @@ exports.createProductImage = async (req, res, next) => {
         product,
       },
     });
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    next(err);
   } finally {
     await Promise.all(
-      req.files.map(async (file) => {
+      req.files.map(async file => {
         return await fs.rm(file.path);
       }),
     );
   }
 };
 
-exports.deleteProductImage = async (req, res, next) => {
-  try {
-    await Image.findByIdAndDelete(req.params.imageId);
-    const product = await Product.findById(req.params.productId);
+exports.deleteProductImage = catchAsync(async (req, res, next) => {
+  await Image.findByIdAndDelete(req.params.imageId);
+  const product = await Product.findById(req.params.productId);
 
-    if (!product) {
-      return next(new ApiError(404, 'No product found with that ID!'));
-    }
-
-    product.images = product.images.filter((imageId) => imageId.toString() !== req.params.imageId);
-    await product.save();
-
-    res.status(204).json({
-      status: 'success',
-      data: null,
-    });
-  } catch (error) {
-    next(error);
+  if (!product) {
+    return next(new ApiError(404, 'No product found with that ID!'));
   }
-};
 
-exports.getImage = async (req, res, next) => {
-  try {
-    const image = await Image.findById(req.params.imageId);
+  product.images = product.images.filter(
+    imageId => imageId.toString() !== req.params.imageId,
+  );
+  await product.save();
 
-    if (!image) {
-      return next(new ApiError(404, 'No image found with that ID!'));
-    }
+  res.status(204).json({
+    status: 'success',
+    data: null,
+  });
+});
 
-    res.contentType('image/jpeg');
-    res.send(image.data);
-  } catch (error) {
-    next(error);
+exports.getImage = catchAsync(async (req, res, next) => {
+  const image = await Image.findById(req.params.imageId);
+
+  if (!image) {
+    return next(new ApiError(404, 'No image found with that ID!'));
   }
-};
+
+  res.contentType('image/jpeg');
+  res.send(image.data);
+});
 

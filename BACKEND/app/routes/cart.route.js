@@ -1,4 +1,5 @@
 const express = require('express');
+
 const authController = require('../controllers/auth.controller');
 const cartController = require('../controllers/cart.controller');
 
@@ -15,3 +16,4 @@ router
   .delete(cartController.deleteCartItem);
 
 module.exports = router;
+

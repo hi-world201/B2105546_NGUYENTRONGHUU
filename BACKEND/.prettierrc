@@ -1,6 +1,8 @@
 {
     "singleQuote": true,
-    "printWidth": 100,
+    "printWidth": 80,
     "endOfLine": "crlf", 
-    "trailingComma": "all"
+    "trailingComma": "all",
+    "arrowParens": "avoid",
+    "tabWidth": 2
 }

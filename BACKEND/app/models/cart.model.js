@@ -1,23 +1,26 @@
 const mongoose = require('mongoose');
 
+const { cartMessage } = require('../languages/index.js');
+
 const cartSchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
-    required: [true, 'A cart item must belong to a user!'],
+    required: [true, cartMessage.requiredUser],
   },
   product: {
     type: mongoose.Schema.ObjectId,
     ref: 'Product',
-    required: [true, 'A cart item must be a product!'],
+    required: [true, cartMessage.requiredProduct],
   },
   quantity: {
     type: Number,
-    required: [true, 'A cart item must have quantity!'],
-    min: [0, 'Quantity must be at least 0!'],
+    required: [true, cartMessage.requiredQuantity],
+    min: [1, cartMessage.minQuantity],
   },
 });
 
 const Cart = mongoose.model('Cart', cartSchema);
 
 module.exports = Cart;
+

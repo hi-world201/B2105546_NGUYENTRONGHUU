@@ -1,4 +1,5 @@
 const express = require('express');
+
 const userController = require('../controllers/user.controller');
 const authController = require('../controllers/auth.controller');
 
@@ -35,3 +36,4 @@ router
   .delete(userController.deleteUser);
 
 module.exports = router;
+

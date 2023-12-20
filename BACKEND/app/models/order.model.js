@@ -1,18 +1,25 @@
 const mongoose = require('mongoose');
 
+const {
+  orderItemMessage,
+  statusMessage,
+  orderMessage,
+} = require('../languages');
+
 const orderItemSchema = mongoose.Schema({
   product: {
     type: mongoose.Schema.ObjectId,
     ref: 'Product',
-    required: true,
+    required: [true, orderItemMessage.requiredProduct],
   },
   quantity: {
     type: Number,
-    required: true,
+    required: [true, orderItemMessage.requiredQuantity],
+    min: [1, orderItemMessage.minQuantity],
   },
   price: {
     type: Number,
-    required: true,
+    required: [true, orderItemMessage.requiredPrice],
   },
 });
 
@@ -29,7 +36,7 @@ const statusSchema = mongoose.Schema({
   updatedBy: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
-    required: true,
+    required: [true, statusMessage.requiredUpdatedBy],
   },
 });
 
@@ -37,36 +44,37 @@ const order = mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
-    required: true,
+    required: [true, orderMessage.requiredUser],
   },
   orderItems: {
     type: [orderItemSchema],
-    required: true,
+    required: [true, orderMessage.requiredOrderItems],
     validate: {
       validator: function (val) {
         return val.length > 0;
       },
-      message: 'An order must have at least one item!',
+      message: orderMessage.requiredOrderItemsLength,
     },
   },
   fullname: {
     type: String,
-    required: true,
+    required: [true, orderMessage.requiredFullname],
   },
   shippingAddress: {
     type: String,
-    required: true,
+    required: [true, orderMessage.requiredShippingAddress],
   },
   telephone: {
     type: String,
-    required: true,
+    required: [true, orderMessage.requiredTelephone],
   },
   totalPrice: {
     type: Number,
-    required: true,
+    required: [true, orderMessage.requiredTotalPrice],
   },
   status: {
     type: [statusSchema],
+    required: [true, orderMessage.requiredStatus],
   },
   currentStatus: {
     type: String,

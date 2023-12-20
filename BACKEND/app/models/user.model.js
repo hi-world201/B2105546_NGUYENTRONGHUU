@@ -1,24 +1,26 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
-const { createToken } = require('../utils/createRandomToken');
+
+const { createToken } = require('../utils/token.util');
+const { userMessage } = require('../languages');
 
 const userSchema = mongoose.Schema(
   {
     email: {
       type: String,
-      unique: true,
-      required: true,
+      required: [true, userMessage.requiredEmail],
+      unique: true, // FIXME: unique email
       lowercase: true,
       validate: {
         validator: validator.isEmail,
-        message: 'Invalid email! Please use a valid email!',
+        message: userMessage.invalidEmail,
       },
     },
     password: {
       type: String,
-      required: [true, 'Password cannot be empty!'],
-      minlength: [8, 'Password must be at least 8 charactrers!'],
+      required: [true, userMessage.requiredPassword],
+      minlength: [8, userMessage.minlengthPassword],
       // validate: {
       //   validator: validator.isStrongPassword,
       //   message:
@@ -28,12 +30,12 @@ const userSchema = mongoose.Schema(
     },
     confirmPassword: {
       type: String,
-      required: [true, 'Please confirm your password!'],
+      required: [true, userMessage.requiredConfirmPassword],
       validate: {
         validator: function (val) {
           return val === this.password;
         },
-        message: 'Invalid password confirm. Please try again!',
+        message: userMessage.invalidConfirmPassword,
       },
     },
     fullname: {
@@ -137,7 +139,8 @@ userSchema.pre('save', function (next) {
 // Only allow user active login
 userSchema.pre(/^find/, function () {
   // For order route (trick -> FIXME: find another way)
-  if (this._fields && this._fields.active === 1 && this._fields.order === 1) return;
+  if (this._fields && this._fields.active === 1 && this._fields.order === 1)
+    return;
   // If using for activating user, find all
   if (!this._conditions.userActiveToken && !this._conditions.isAdminAccess)
     this.find({ active: true });
@@ -150,3 +153,4 @@ userSchema.pre(/^find/, function () {
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
+

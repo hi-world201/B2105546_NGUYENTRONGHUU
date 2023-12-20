@@ -1,8 +1,10 @@
 const express = require('express');
+
+const uploadImage = require('../utils/upload.util');
+
 const productController = require('../controllers/product.controller');
 const authController = require('../controllers/auth.controller');
 const imageController = require('../controllers/image.controller');
-const uploadImage = require('../utils/uploadImage');
 
 const router = express.Router();
 
@@ -53,3 +55,4 @@ router
   );
 
 module.exports = router;
+

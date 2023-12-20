@@ -1,25 +1,27 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 
+const { productMessage } = require('../languages');
+
 const productSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'A product must have a name'],
+      required: [true, productMessage.requiredName],
       unique: true,
       trim: true,
-      minlength: [5, 'Product name must have at least 5 charaters'],
-      maxlength: [200, 'Product name cannot be more than 200 characters'],
+      minlength: [5, productMessage.minlengthName],
+      maxlength: [200, productMessage.maxlengthName],
     },
     price: {
       type: Number,
-      required: [true, 'A product must have a price'],
-      min: [0, 'Product price cannot be less than 0'],
+      required: [true, productMessage.requiredPrice],
+      min: [0, productMessage.minPrice],
     },
     stockQuantity: {
       type: Number,
-      required: true,
-      min: [0, 'Stock quantity cannot be less than 0'],
+      required: [true, productMessage.requiredStockQuantity],
+      min: [1, productMessage.minStockQuantity],
     },
     categories: {
       type: [{ type: String }],
@@ -32,7 +34,8 @@ const productSchema = mongoose.Schema(
       unique: true,
     },
     description: {
-      type: String, // Can be use for JSON.stringify
+      type: String,
+      default: '',
     },
     createdAt: {
       type: Date,
@@ -40,7 +43,7 @@ const productSchema = mongoose.Schema(
     },
     createdBy: {
       type: mongoose.Schema.ObjectId,
-      required: [true, 'A product must be created by someone!'],
+      required: [true, productMessage.requiredCreatedBy],
       ref: 'User',
     },
   },
@@ -59,3 +62,4 @@ productSchema.pre('save', function (next) {
 const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;
+

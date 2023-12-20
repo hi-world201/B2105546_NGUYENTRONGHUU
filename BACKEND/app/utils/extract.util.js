@@ -1,6 +1,6 @@
-exports.extractPayload = (payload, fields) => {
+exports.extractPayload = (payload, includedFields) => {
   const obj = {};
-  fields.forEach((field) => (obj[field] = payload[field]));
+  includedFields.forEach((field) => (obj[field] = payload[field]));
 
   return obj;
 };
@@ -11,3 +11,4 @@ exports.filterPayload = (payload, excludedFields) => {
 
   return obj;
 };
+

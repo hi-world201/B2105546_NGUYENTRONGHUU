@@ -1,43 +1,55 @@
-const ApiError = require('../utils/ApiError');
+const ApiError = require('../utils/error.util');
+const { globalHandlerMessage, jwtMessage } = require('../languages');
 
 // Handle mongoose error
 
-const handleDuplicateKeyErrorDB = (err) => {
+const handleDuplicateKeyErrorDB = err => {
   let duplicatedField = Object.keys(err.keyValue);
-  if (duplicatedField.includes('username', 'email')) {
+  if (duplicatedField.includes('email')) {
     duplicatedField = duplicatedField.join(', ');
 
     return new ApiError(
       400,
-      `${duplicatedField} has been used! Please use another ${duplicatedField}`,
+      globalHandlerMessage.duplicatedEmail.replace(
+        '{{duplicatedValue}}',
+        err.keyValue.email,
+      ),
     );
   }
   duplicatedField = duplicatedField.join(', ');
   return new ApiError(
     400,
-    `Duplicate field value: '${duplicatedField}. Please use another value!'`,
+    globalHandlerMessage.duplicatedKey.replace(
+      '{{duplicatedField}}',
+      duplicatedField,
+    ),
   );
 };
 
-const handleValidationErrorDB = (err) => {
+const handleValidationErrorDB = err => {
   const message = Object.keys(err.errors)
-    .map((field) => err.errors[field].message)
+    .map(field => err.errors[field].message)
     .join('. ');
   return new ApiError(400, message);
 };
 
-const handleCastErrorDB = (err) => {
-  return new ApiError(400, `Invalid field '${err.path}': '${err.value}'`);
+const handleCastErrorDB = err => {
+  return new ApiError(
+    400,
+    globalHandlerMessage.invalidField
+      .replace('{{field}}', err.path)
+      .replace('{{value}}', err.value),
+  );
 };
 
 // Handle JWT error
 
-const handleJWTExpiredError = (err) => {
-  return new ApiError(401, 'Your login has expired! Please login again to access this route!');
+const handleJWTExpiredError = err => {
+  return new ApiError(401, jwtMessage.expiredError);
 };
 
-const handleJWTError = (err) => {
-  return new ApiError(400, 'Your login is not valid! Please login again!');
+const handleJWTError = err => {
+  return new ApiError(400, jwtMessage.jwtError);
 };
 
 // Methods send error
@@ -76,3 +88,4 @@ module.exports = (err, req, res, next) => {
   else if (process.env.NODE_ENV === 'production') sendErrorProd(err, res);
   next();
 };
+

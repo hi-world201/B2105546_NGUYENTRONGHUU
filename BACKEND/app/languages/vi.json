@@ -1,0 +1,8 @@
+{
+    "cart": {
+        "requiredUser" :"Sản phẩm trong giỏ hàng phải thuộc về một người dùng!",
+        "requiredProduct": "Sản phẩm trong giỏ hàng phải thuộc về một sản phẩm!",
+        "requiredQuantity": "Sản phẩm trong giỏ hàng phải có số lượng!",
+        "minQuantity": "Số lượng sản phẩm trong giỏ hàng phải lớn hơn 0!"
+    }
+}
