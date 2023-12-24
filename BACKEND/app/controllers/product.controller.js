@@ -1,6 +1,7 @@
 const ApiError = require('../utils/error.util');
 const MongooseQuery = require('../utils/query.util');
 const catchAsync = require('../utils/catchAsync.util');
+const { productMessage } = require('../languages');
 
 const Product = require('../models/product.model');
 const Image = require('../models/image.model');
@@ -18,7 +19,7 @@ exports.getAllProduct = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: products,
+    data: { products },
   });
 });
 
@@ -28,12 +29,20 @@ exports.getProduct = catchAsync(async (req, res, next) => {
   });
 
   if (!product) {
-    return next(new ApiError(404, 'No product found with that ID'));
+    return next(
+      new ApiError(
+        404,
+        productMessage.productNotFound.replace(
+          '{{productId}}',
+          req.params.productId,
+        ),
+      ),
+    );
   }
 
   res.status(200).json({
     status: 'success',
-    data: product,
+    data: { product },
   });
 });
 
@@ -46,7 +55,7 @@ exports.createProduct = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: 'success',
-    data: product,
+    data: { product },
   });
 });
 
@@ -58,12 +67,20 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
   );
 
   if (!product) {
-    return next(new ApiError(404, 'No product found with that ID'));
+    return next(
+      new ApiError(
+        404,
+        productMessage.productNotFound.replace(
+          '{{productId}}',
+          req.params.productId,
+        ),
+      ),
+    );
   }
 
   res.status(200).json({
     status: 'success',
-    data: product,
+    data: { product },
   });
 });
 
@@ -71,7 +88,15 @@ exports.deleteProduct = catchAsync(async (req, res, next) => {
   const product = await Product.findByIdAndDelete(req.params.productId);
 
   if (!product) {
-    return next(new ApiError(404, 'No product found with that ID'));
+    return next(
+      new ApiError(
+        404,
+        productMessage.productNotFound.replace(
+          '{{productId}}',
+          req.params.productId,
+        ),
+      ),
+    );
   }
 
   product.images.forEach(async image => {
@@ -80,7 +105,7 @@ exports.deleteProduct = catchAsync(async (req, res, next) => {
 
   res.status(204).json({
     status: 'success',
-    data: product,
+    data: null,
   });
 });
 

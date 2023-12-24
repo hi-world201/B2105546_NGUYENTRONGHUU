@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const { OAuth2Client } = require('google-auth-library');
 
-const sendGmail = async (mail) => {
+const sendGmail = async mail => {
   try {
     const myOAuth2Client = new OAuth2Client(
       process.env.GOOGLE_MAILER_CLIENT_ID,
@@ -31,7 +31,7 @@ const sendGmail = async (mail) => {
       to: mail.to,
       subject: mail.subject,
       // text: mail.text,
-      html: mail.text,
+      html: mail.html,
     };
 
     await transporter.sendMail(mailOptions);
@@ -40,7 +40,7 @@ const sendGmail = async (mail) => {
   }
 };
 
-const sendTestMail = async (mail) => {
+const sendTestMail = async mail => {
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
@@ -55,7 +55,7 @@ const sendTestMail = async (mail) => {
       from: process.env.MAIL_USER,
       to: mail.to,
       subject: mail.subject,
-      text: mail.text,
+      html: mail.html,
     };
 
     await transporter.sendMail(mailOptions);
@@ -65,7 +65,8 @@ const sendTestMail = async (mail) => {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  exports.sendMail = sendGmail;
+  module.exports = sendGmail;
 } else {
-  exports.sendMail = sendTestMail;
+  module.exports = sendTestMail;
 }
+

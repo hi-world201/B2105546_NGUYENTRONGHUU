@@ -90,7 +90,6 @@ exports.updateCartItem = catchAsync(async (req, res, next) => {
     );
   }
 
-  // Find product by ID
   const product = await Product.findById(item.product);
   if (!product) {
     await item.remove();
@@ -114,7 +113,6 @@ exports.updateCartItem = catchAsync(async (req, res, next) => {
     );
   }
 
-  // Update quantity
   item.quantity = quantity;
   await item.save();
 
@@ -134,7 +132,7 @@ exports.deleteCartItem = catchAsync(async (req, res, next) => {
 
   res.status(204).json({
     status: 'success',
-    message: 'Cart item has been deleted successfully!',
+    message: cartMessage.deleteCartItemSuccess,
   });
 });
 

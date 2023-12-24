@@ -1,4 +1,4 @@
-const data = require('./en.json');
+const data = require('./vi.json');
 
 module.exports = data;
 

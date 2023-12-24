@@ -5,107 +5,88 @@ const { filterPayload } = require('../utils/extract.util');
 const { setCookie, getCookie, clearCookie } = require('../utils/cookie.util');
 const sendMail = require('../utils/sendMail.util');
 const catchAsync = require('../utils/catchAsync.util');
+const { mailTemplate, userMessage } = require('../languages');
 
 const User = require('../models/user.model');
 
-const signToken = id => {
-  return jwt.sign({ id }, process.env.JWT_SECRET_KEY, {
+const signToken = _id => {
+  return jwt.sign({ _id }, process.env.JWT_SECRET_KEY, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 };
 
 //  Create link to send mail
-const createActiveLink = (req, activeToken) => {
-  return `<a href="${process.env.FRONTEND_ACTIVE_URL}/${activeToken}">Active now</a>
-  or (if you only use api)
-  <a href="${req.protocol}://${req.headers.host}/api/v1/users/active/${activeToken}">Patch here</a>`;
+const htmlActiveMail = (req, activeToken) => {
+  return mailTemplate.activeMail.html
+    .replace(/{{FRONTEND_ACTIVE_URL}}/g, process.env.FRONTEND_ACTIVE_URL)
+    .replace(/{{activeToken}}/g, activeToken)
+    .replace(/{{protocol}}/g, req.protocol)
+    .replace(/{{host}}/g, req.headers.host);
 };
 
-const createResetLink = (req, resetToken) => {
-  return `<a href="${process.env.FRONTEND_RESET_PASSWORD_URL}/${resetToken}">Reset now</a>
-  or (if you only use api)
-  <a href="${req.protocol}://${req.headers.host}/api/v1/users/resetPassword/${resetToken}>Patch here</a>`;
+const htmlResetLink = (req, resetToken) => {
+  return mailTemplate.resetMail.html
+    .replace(
+      /{{FRONTEND_RESET_PASSWORD_URL}}/g,
+      process.env.FRONTEND_RESET_PASSWORD_URL,
+    )
+    .replace(/{{resetToken}}/g, resetToken)
+    .replace(/{{protocol}}/g, req.protocol)
+    .replace(/{{host}}/g, req.headers.host);
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
-  // Remove fields from req.body
-  const excludedFields = ['role', 'active'];
-  const filtered = filterPayload(req.body, excludedFields);
-
-  // Create user
+  const filtered = filterPayload(req.body, ['role', 'active']);
   const user = await User.create(filtered);
 
-  // Send activate mail
-  const activeLink = createActiveLink(req, user.userActiveToken);
   const mail = {
     to: user.email,
-    subject: 'Activate your account',
-    text: `Please click on the following link to activate your account:
-      ${activeLink}`,
+    subject: mailTemplate.activeMail.subject,
+    html: `${htmlActiveMail(req, user.userActiveToken)}`,
   };
   await sendMail(mail);
 
-  // Send response
   res.status(201).json({
     status: 'success',
-    message:
-      'Your active token has been sent to your email! Please check it to complete sign up!',
+    message: userMessage.signupSuccess,
   });
 });
 
 exports.activeUser = catchAsync(async (req, res, next) => {
-  // Find user in database by active token
-  const user = await User.findOne({
-    userActiveToken: req.params.activeToken,
-  });
+  const user = await User.findOne({ userActiveToken: req.params.activeToken });
 
-  // Token is not valid
+  // Invalid token
   if (!user) {
-    return next(
-      new ApiError(
-        400,
-        'Your token is not valid! Please provide a valid token!',
-      ),
-    );
+    return next(new ApiError(400, userMessage.invalidActiveToken));
   }
 
-  // Active user and save
   user.active = true;
   user.userActiveToken = undefined;
-  await user.save({
-    validateBeforeSave: false,
-  });
+  await user.save({ validateBeforeSave: false });
 
-  // Send response
   res.status(200).json({
     status: 'success',
-    message: 'Your account has been activated!',
+    message: userMessage.activeSuccess,
   });
 });
 
 exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
 
-  // Empty email
   if (!email || !password) {
-    return next(new ApiError(400, 'Please provide your email and password!'));
+    return next(new ApiError(400, userMessage.emptyLoginInfo));
   }
 
-  // Get user from database
   const user = await User.findOne({ email }).select('+password');
 
-  // User not found or password not correct
   if (!user || !(await user.comparePassword(password, user.password))) {
-    return next(new ApiError(401, 'Incorrect email and password!'));
+    return next(new ApiError(401, userMessage.incorrectLoginInfo));
   }
 
-  const token = signToken(user._id);
-
-  // Send response
-  setCookie(res, token);
+  await setCookie(res, signToken(user._id));
   res.status(200).json({
     status: 'success',
-    message: 'Login sucessfully!',
+    message: userMessage.loginSuccess,
     data: {
       email: user.email,
       role: user.role,
@@ -119,23 +100,17 @@ exports.protect = catchAsync(async (req, res, next) => {
       return next(new ApiError(401, 'Please login before accessing this route'));
     }
     const token = req.headers.authorization.split(' ')[1];
-    */
-  const token = getCookie(req);
-  const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
+  */
+  const decodedToken = jwt.verify(getCookie(req), process.env.JWT_SECRET_KEY);
 
-  // Get user from database by Id
-  const user = await User.findById(decodedToken.id);
+  const user = await User.findById(decodedToken._id);
 
-  // Check user exist
   if (!user) {
-    return next(new ApiError(404, 'User does not exist! Please try again!'));
+    return next(new ApiError(404, userMessage.userNotFound));
   }
 
-  // Check if user has changed password after creating token
   if (user.passwordChangedAfter(decodedToken.iat)) {
-    return next(
-      new ApiError(401, 'Your password has been changed! Please login again!'),
-    );
+    return next(new ApiError(401, userMessage.passwordChanged));
   }
 
   // Grant access to protected route
@@ -148,55 +123,39 @@ exports.protect = catchAsync(async (req, res, next) => {
 });
 
 exports.restrictTo = (...roles) => {
-  // Return a callback function (middleware)
   return (req, res, next) => {
     if (roles.includes(req.user.role)) {
       next();
     } else {
-      return next(
-        new ApiError(403, 'You do not have permission for this action!'),
-      );
+      return next(new ApiError(403, userMessage.notHavePermission));
     }
   };
 };
 
 exports.forgotPassword = catchAsync(async (req, res, next) => {
-  // find user in database by email
   const user = await User.findOne({ email: req.body.email });
 
   if (!user) {
-    return next(
-      new ApiError(
-        404,
-        'Cannot found any user! Please provide a correct email!',
-      ),
-    );
+    return next(new ApiError(404, userMessage.userNotFound));
   }
 
-  // Save passwordResetToken and ExpiresTime into user
   const resetToken = user.createPasswordResetToken();
   await user.save({ validateBeforeSave: false });
 
-  // Send reset password mail
-  const resetLink = createResetLink(req, resetToken);
   const mail = {
     to: user.email,
-    subject: 'Reset your password',
-    text: `Please click on the following link to reset your password:
-      ${resetLink}`,
+    subject: mailTemplate.resetMail.subject,
+    html: `${htmlResetLink(req, resetToken)}`,
   };
   await sendMail(mail);
 
-  // Send response
   res.status(200).json({
     status: 'success',
-    message:
-      'Your reset token has been sent to your email! Please check your email to complete!',
+    message: userMessage.forgotPasswordSuccess,
   });
 });
 
 exports.resetPassword = catchAsync(async (req, res, next) => {
-  // find user by reset token
   const { resetToken } = req.params;
   const user = await User.findOne({
     passwordResetToken: resetToken,
@@ -204,65 +163,47 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   });
 
   if (!user) {
-    return next(
-      new ApiError(
-        400,
-        'Your token is not valid! Please provide a valid token!',
-      ),
-    );
+    return next(new ApiError(400, userMessage.invalidResetToken));
   }
 
-  // Update user password
   user.password = req.body.password;
   user.confirmPassword = req.body.confirmPassword;
   user.passwordResetToken = undefined;
   user.passwordResetTokenExpiresIn = undefined;
   await user.save();
 
-  // Send response
   res.status(200).json({
     status: 'success',
-    message: 'Your password has been changed successfully!',
+    message: userMessage.resetPasswordSuccess,
   });
 });
 
 exports.updatePassword = catchAsync(async (req, res, next) => {
-  // Find user in database
   const user = await User.findById(req.user.id).select('+password');
 
-  // Empty or incorrect old password
   if (
     !req.body.oldPassword ||
     !(await user.comparePassword(req.body.oldPassword, user.password))
   ) {
-    return next(
-      new ApiError(
-        401,
-        'Your password is wrong. Please provide a correct password!',
-      ),
-    );
+    return next(new ApiError(401, userMessage.incorrectOldPassword));
   }
 
   user.password = req.body.password;
   user.confirmPassword = req.body.confirmPassword;
-
   await user.save();
 
-  const token = signToken(user._id);
-
-  // Send response
-  setCookie(res, token);
+  setCookie(res, signToken(user._id));
   res.status(200).json({
     status: 'success',
-    message: 'Update password sucessfully!',
+    message: userMessage.updatePasswordSuccess,
   });
 });
 
-exports.logout = catchAsync((req, res, next) => {
-  clearCookie(res);
+exports.logout = catchAsync(async (req, res, next) => {
+  await clearCookie(res);
   res.status(200).json({
     status: 'success',
-    message: 'Logout successfully!',
+    message: userMessage.logoutSuccess,
   });
 });
 

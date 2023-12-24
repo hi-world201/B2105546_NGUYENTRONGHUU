@@ -1,6 +1,7 @@
 const ApiError = require('../utils/error.util');
 const MongooseQuery = require('../utils/query.util');
 const catchAsync = require('../utils/catchAsync.util');
+const { orderMessage } = require('../languages');
 
 const Order = require('../models/order.model');
 const Product = require('../models/product.model');
@@ -10,19 +11,26 @@ const extractOrderItems = catchAsync(async (items, next) => {
   const orderItems = await Promise.all(
     items.map(async item => {
       if (!item.product || !item.quantity) {
-        return next(new ApiError(400, 'Invalid order items!'));
+        return next(new ApiError(400, orderMessage.invalidOrderItems));
       }
 
       const product = await Product.findById(item.product);
       if (!product) {
-        return next(new ApiError(400, `Product ${item.product} not found!`));
+        return next(
+          new ApiError(400, orderMessage.productNotFound).replace(
+            '{{productId}}',
+            item.product,
+          ),
+        );
       }
 
       if (item.quantity > product.stockQuantity) {
         return next(
           new ApiError(
             400,
-            `Product "${product.name}" has only ${product.stockQuantity} left!`,
+            orderMessage.productOutOfStock
+              .replace('{{productId}}', product._id)
+              .replace('{{stockQuantity}}', product.stockQuantity),
           ),
         );
       }
@@ -64,7 +72,7 @@ exports.getAllOrders = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: orders,
+    data: { orders },
   });
 });
 
@@ -87,12 +95,17 @@ exports.getOrder = catchAsync(async (req, res, next) => {
     .select('-__v');
 
   if (!order) {
-    return next(new ApiError(404, 'Order not found!'));
+    return next(
+      new ApiError(
+        404,
+        orderMessage.orderNotFound.replace('{{orderId}}', req.params.orderId),
+      ),
+    );
   }
 
   res.status(200).json({
     status: 'success',
-    data: order,
+    data: { order },
   });
 });
 
@@ -100,7 +113,7 @@ exports.createOrder = catchAsync(async (req, res, next) => {
   const payload = { ...req.body };
 
   if (!payload.orderItems || payload.orderItems.length === 0) {
-    return next(new ApiError(400, 'Invalid order items!'));
+    return next(new ApiError(400, orderMessage.invalidOrderItems));
   }
 
   // Extract order items
@@ -128,38 +141,49 @@ exports.createOrder = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: order,
+    data: { order },
   });
 });
 
 exports.updateOrderStatus = catchAsync(async (req, res, next) => {
   if (!req.body.status) {
-    return next(new ApiError(400, 'Invalid status! Please provide status!'));
+    return next(new ApiError(400, orderMessage.invalidStatus));
   }
 
   const order = await Order.findById(req.params.orderId);
 
   if (!order) {
-    return next(new ApiError(404, 'Order not found!'));
+    return next(
+      new ApiError(
+        404,
+        orderMessage.orderNotFound.replace('{{orderId}}', req.params.orderId),
+      ),
+    );
   }
 
   if (
     order.currentStatus === 'cancelled' ||
     order.currentStatus === 'delivered'
   ) {
-    return next(new ApiError(400, `Order is ${order.currentStatus}!`));
+    return next(
+      new ApiError(
+        400,
+        orderMessage.orderCannotUpdate
+          .replace('{{status}}', order.currentStatus)
+          .replace('{{orderId}}', req.params.orderId),
+      ),
+    );
   }
 
   order.status.push({
     status: req.body.status,
     updatedBy: req.user.id,
   });
-
   await order.save();
 
   res.status(200).json({
     status: 'success',
-    message: 'Update order status successfully!',
+    data: { order },
   });
 });
 
@@ -167,19 +191,25 @@ exports.deliverOrder = catchAsync(async (req, res, next) => {
   const order = await Order.findById(req.params.orderId);
 
   if (order.currentStatus !== 'shipping') {
-    return next(new ApiError(400, `Order is ${order.currentStatus}!`));
+    return next(
+      new ApiError(
+        400,
+        orderMessage.orderCannotBeUpdated
+          .replace('{{status}}', order.currentStatus)
+          .replace('{{orderId}}', req.params.orderId),
+      ),
+    );
   }
 
   order.status.push({
     status: 'delivered',
     updatedBy: req.user.id,
   });
-
   await order.save();
 
   res.status(200).json({
     status: 'success',
-    message: 'Update order status successfully!',
+    data: { order },
   });
 });
 
@@ -187,11 +217,23 @@ exports.cancelOrder = catchAsync(async (req, res, next) => {
   const order = await Order.findById(req.params.orderId);
 
   if (!order) {
-    return next(new ApiError(404, 'Order not found!'));
+    return next(
+      new ApiError(
+        404,
+        orderMessage.orderNotFound.replace('{{orderId}}', req.params.orderId),
+      ),
+    );
   }
 
   if (order.currentStatus !== 'pending') {
-    return next(new ApiError(400, 'Order cannot be cancelled!'));
+    return next(
+      new ApiError(
+        400,
+        orderMessage.orderCannotBeCancelled
+          .replace('{{status}}', order.currentStatus)
+          .replace('{{orderId}}', req.params.orderId),
+      ),
+    );
   }
 
   order.status.push({
@@ -209,7 +251,7 @@ exports.cancelOrder = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    message: 'Cancel order successfully!',
+    message: orderMessage.cancelOrderSuccess,
   });
 });
 

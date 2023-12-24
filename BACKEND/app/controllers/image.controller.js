@@ -5,15 +5,24 @@ const catchAsync = require('../utils/catchAsync.util');
 
 const Image = require('../models/image.model');
 const Product = require('../models/product.model');
+const { cartMessage } = require('../languages');
 
 exports.createProductImage = async (req, res, next) => {
   try {
     const product = await Product.findById(req.params.productId);
 
     if (!product) {
-      return next(new ApiError(404, 'No product found with that ID!'));
+      return next(
+        new ApiError(
+          404,
+          cartMessage.productNotFound.replace(
+            '{{productId}}',
+            req.params.productId,
+          ),
+        ),
+      );
     }
-    // Get image buffers and remove from the file system
+
     const imageBuffers = await Promise.all(
       req.files.map(async file => {
         const fileBuffer = await fs.readFile(file.path);
@@ -24,10 +33,7 @@ exports.createProductImage = async (req, res, next) => {
       }),
     );
 
-    // Insert images into the database
     const images = await Image.create(imageBuffers);
-
-    // // Insert image IDs into the product
     product.images.push(...images.map(image => image._id));
     await product.save();
 
@@ -53,7 +59,15 @@ exports.deleteProductImage = catchAsync(async (req, res, next) => {
   const product = await Product.findById(req.params.productId);
 
   if (!product) {
-    return next(new ApiError(404, 'No product found with that ID!'));
+    return next(
+      new ApiError(
+        404,
+        cartMessage.productNotFound.replace(
+          '{{productId}}',
+          req.params.productId,
+        ),
+      ),
+    );
   }
 
   product.images = product.images.filter(
@@ -71,10 +85,15 @@ exports.getImage = catchAsync(async (req, res, next) => {
   const image = await Image.findById(req.params.imageId);
 
   if (!image) {
-    return next(new ApiError(404, 'No image found with that ID!'));
+    return next(
+      new ApiError(
+        404,
+        cartMessage.imageNotFound.replace('{{imageId}}', req.params.imageId),
+      ),
+    );
   }
 
   res.contentType('image/jpeg');
-  res.send(image.data);
+  res.status(200).send(image.data);
 });
 

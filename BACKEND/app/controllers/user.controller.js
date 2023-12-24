@@ -2,11 +2,11 @@ const ApiError = require('../utils/error.util');
 const MongooseQuery = require('../utils/query.util');
 const { filterPayload } = require('../utils/extract.util');
 const catchAsync = require('../utils/catchAsync.util');
+const { userMessage } = require('../languages');
 
 const User = require('../models/user.model');
 
 // For admin
-
 exports.getAllUser = catchAsync(async (req, res, next) => {
   let mongooseQuery = new MongooseQuery(User.find(), {
     ...req.query,
@@ -18,7 +18,7 @@ exports.getAllUser = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: users,
+    data: { users },
   });
 });
 
@@ -29,12 +29,12 @@ exports.getUser = catchAsync(async (req, res, next) => {
   }).select('+active');
 
   if (!user) {
-    return next(new ApiError(404, 'No user found with that ID!'));
+    return next(new ApiError(404, userMessage.userNotFound));
   }
 
   res.status(200).json({
     status: 'success',
-    data: user,
+    data: { user },
   });
 });
 
@@ -44,7 +44,7 @@ exports.createUser = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: 'success',
-    data: user,
+    data: { user },
   });
 });
 
@@ -56,12 +56,12 @@ exports.updateUser = catchAsync(async (req, res, next) => {
   ).select('+active');
 
   if (!user) {
-    return next(new ApiError(404, 'No user found with that ID'));
+    return next(new ApiError(404, userMessage.userNotFound));
   }
 
   res.status(200).json({
     status: 'success',
-    data: user,
+    data: { user },
   });
 });
 
@@ -74,12 +74,12 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
   ).select('+active');
 
   if (!user) {
-    return next(new ApiError(404, 'No User found with that ID'));
+    return next(new ApiError(404, userMessage.userNotFound));
   }
 
   res.status(204).json({
     status: 'success',
-    data: user,
+    data: null,
   });
 });
 
@@ -91,33 +91,24 @@ exports.getMe = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: user,
+    data: { user },
   });
 });
 
 exports.updateMe = catchAsync(async (req, res, next) => {
-  // Not for password update
   if (req.body.password || req.body.confirmPassword) {
-    return next(
-      new ApiError(
-        400,
-        'This route is not for password update. Please use /changePassword',
-      ),
-    );
+    return next(new ApiError(400, userMessage.notForUpdatePassword));
   }
 
   // Remove field from req.body
-  const excludedFields = [
+  const filtered = filterPayload(req.body, [
     'role',
     'passwordChangedAt',
     'email',
     'active',
-    'id',
     '_id',
-  ];
-  const filtered = filterPayload(req.body, excludedFields);
+  ]);
 
-  // Update data
   const user = await User.findByIdAndUpdate(req.user.id, filtered, {
     new: true,
     runValidators: true,
@@ -125,7 +116,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: user,
+    data: { user },
   });
 });
 
