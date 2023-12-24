@@ -26,6 +26,9 @@ app.use(
     origin: process.env.CLIENT_URL.split(','),
   }),
 );
+
+console.log(`Allow CORS: ${process.env.CLIENT_URL.split(',')}`);
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
