@@ -17,6 +17,11 @@ app.use(pinia);
 // Router config
 app.use(router);
 
+// Handling error
+app.config.errorHandler = (error, vm, info) => {
+  console.log(`Error: ${error.toString()}\nInfo: ${info}`);
+};
+
 // Mount app
 app.mount('#app');
 

@@ -7,10 +7,10 @@ class OrderService {
 
   async getAllOrders(query) {
     try {
-      const params = new URLSearchParams(query).toString();
-      const response = await this.api.json.get(`/?${params}`);
+      const response = await this.api.json.get('', { params: query });
       return response.data;
     } catch (err) {
+      console.log(err);
       return err.response.data;
     }
   }

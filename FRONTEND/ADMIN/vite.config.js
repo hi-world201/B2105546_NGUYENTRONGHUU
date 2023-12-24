@@ -15,7 +15,12 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'https://hiworld-bookstore.onrender.com',
+        // target: 'http://127.0.0.1:8080',
         changeOrigin: true,
+        headers: {
+          'Access-Control-Allow-Origin': 'http://localhost:5173',
+          'Access-Control-Allow-Credentials': 'true',
+        },
       },
     },
   },

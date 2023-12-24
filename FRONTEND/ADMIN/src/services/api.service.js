@@ -1,6 +1,10 @@
 import axios from 'axios';
 
+axios.defaults.withCredentials = true;
+axios.defaults.credentials = 'include';
+
 const commonConfig = {
+  withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
@@ -17,11 +21,13 @@ const formDataConfig = {
 export default (baseURL) => {
   return {
     json: axios.create({
-      baseURL: `${import.meta.env.VITE_BACKEND_URL}${baseURL}`,
+      // baseURL: `${import.meta.env.VITE_BACKEND_URL}${baseURL}`,
+      baseURL,
       ...commonConfig,
     }),
     formData: axios.create({
-      baseURL: `${import.meta.env.VITE_BACKEND_URL}${baseURL}`,
+      // baseURL: `${import.meta.env.VITE_BACKEND_URL}${baseURL}`,
+      baseURL,
       ...formDataConfig,
     }),
   };

@@ -34,7 +34,7 @@ async function refreshUsers() {
   const response = await userService.getAllUsers(route.query);
 
   if (response.status === 'success') {
-    users.value = response.data;
+    users.value = response.data.users;
   } else {
     users.value = [];
   }

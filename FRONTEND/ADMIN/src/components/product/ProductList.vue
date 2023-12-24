@@ -40,7 +40,7 @@ async function refreshProducts() {
       : await productService.getAllProducts();
 
   if (response.status === 'success') {
-    products.value = response.data;
+    products.value = response.data.products;
   } else {
     products.value = [];
   }

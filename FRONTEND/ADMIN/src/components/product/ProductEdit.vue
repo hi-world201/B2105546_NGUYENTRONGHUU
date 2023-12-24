@@ -189,25 +189,29 @@ async function onSubmit() {
     route.params.productId,
     product.value,
   );
-  //   Remove image
-  if (imageRemoved.value.length > 0) {
-    imageRemoved.value.forEach(async (imageId) => {
-      await productService.deleteProductImage(route.params.productId, imageId);
-    });
-  }
-
-  //  Add new image
-  if (formData.value !== null) {
-    await productService.createProductImages(
-      route.params.productId,
-      formData.value,
-    );
-  }
 
   if (response.status === 'success') {
+    //   Remove image
+    if (imageRemoved.value.length > 0) {
+      imageRemoved.value.forEach(async (imageId) => {
+        await productService.deleteProductImage(
+          route.params.productId,
+          imageId,
+        );
+      });
+    }
+
+    //  Add new image
+    if (formData.value !== null) {
+      await productService.createProductImages(
+        route.params.productId,
+        formData.value,
+      );
+    }
+
     await Swal.fire({
       title: 'Thành công',
-      text: 'Cập nhật sản phẩm thành công!',
+      text: response.message || 'Cập nhật sản phẩm thành công!',
       icon: 'success',
     });
     isUpdated.value = true;
@@ -215,7 +219,7 @@ async function onSubmit() {
   } else {
     await Swal.fire({
       title: 'Thất bại',
-      text: 'Cập nhật sản phẩm thất bại!',
+      text: response.message,
       icon: 'error',
     });
   }
@@ -241,7 +245,7 @@ onBeforeMount(async () => {
   const response = await productService.getProduct(route.params.productId);
 
   if (response.status === 'success') {
-    product.value = response.data;
+    product.value = response.data.product;
     product.value.categories = product.value.categories.join(', ');
     product.value.images = product.value.images.map((image) => ({
       _id: image,
@@ -250,7 +254,7 @@ onBeforeMount(async () => {
   } else {
     await Swal.fire({
       title: 'Thất bại',
-      text: 'Không tìm thấy sản phẩm!',
+      text: response.message,
       icon: 'error',
     });
     isUpdated.value = true;

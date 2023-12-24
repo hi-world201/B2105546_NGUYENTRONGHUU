@@ -96,7 +96,6 @@
 </template>
 
 <script setup>
-import { useUserStore } from '@/stores/user.js';
 import { useRouter } from 'vue-router';
 import { ref, onBeforeMount } from 'vue';
 import userService from '@/services/user.service.js';
@@ -104,7 +103,6 @@ import { Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import Swal from 'sweetalert2';
 
-const store = useUserStore();
 const router = useRouter();
 const loading = ref(false);
 const canChange = ref(false);
@@ -187,12 +185,16 @@ async function refreshData() {
   const response = await userService.getMe();
 
   if (response.status !== 'success') {
-    alert('Đã xảy ra lỗi, vui lòng thử lại sau');
+    await Swal.fire({
+      icon: 'error',
+      title: 'Thất bại',
+      text: response.message || 'Đã xảy ra lỗi, vui lòng thử lại sau!',
+    });
     router.push({ name: 'home-page' });
     return;
   }
 
-  data.value = response.data;
+  data.value = response.data.user;
 }
 
 onBeforeMount(async () => {

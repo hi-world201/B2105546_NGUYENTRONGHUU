@@ -258,7 +258,7 @@ async function onSubmit(type) {
   if (response.status === 'success') {
     await Swal.fire({
       title: 'Thành công',
-      text: 'Cập nhật trạng thái đơn hàng thành công!',
+      text: response.message,
       icon: 'success',
     });
     isUpdated.value = true;
@@ -266,7 +266,7 @@ async function onSubmit(type) {
   } else {
     await Swal.fire({
       title: 'Thất bại',
-      text: 'Lỗi khi cập nhật trạng thái đơn hàng!',
+      text: response.message,
       icon: 'error',
     });
   }
@@ -276,11 +276,11 @@ onBeforeMount(async () => {
   const response = await orderService.getOrder(route.params.orderId);
 
   if (response.status === 'success') {
-    order.value = response.data;
+    order.value = response.data.order;
   } else {
     await Swal.fire({
       title: 'Thất bại',
-      text: 'Lỗi khi lấy thông tin đơn hàng!',
+      text: response.message,
       icon: 'error',
     });
     isUpdated.value = true;

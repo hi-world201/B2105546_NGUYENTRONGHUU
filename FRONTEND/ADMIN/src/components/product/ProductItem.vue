@@ -92,7 +92,7 @@ function onEdit() {}
 async function onDelete() {
   const result = await Swal.fire({
     title: 'Xác nhận xóa',
-    text: 'Bạn có chắc chắn muốn xóa sản phẩm này?',
+    text: 'Bạn có chắc chắn muốn ẩn sản phẩm này (đặt số lượng kho về 0)?',
     icon: 'warning',
     showCancelButton: true,
     confirmButtonText: 'Xóa',
@@ -101,18 +101,20 @@ async function onDelete() {
 
   if (!result.isConfirmed) return;
 
-  const response = await productService.deleteProduct(props.product._id);
+  const response = await productService.updateProduct(props.product._id, {
+    stockQuantity: 0,
+  });
 
   if (response.status === 'fail') {
     await Swal.fire({
       title: 'Thất bại',
-      text: 'Xóa sản phẩm thất bại!',
+      text: response.message || 'Ẩn sản phẩm thất bại!',
       icon: 'error',
     });
   } else {
     await Swal.fire({
       title: 'Thành công',
-      text: 'Xóa sản phẩm thành công!',
+      text: response.message || 'Ẩn sản phẩm thành công!',
       icon: 'success',
     });
   }

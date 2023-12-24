@@ -78,7 +78,9 @@ const router = createRouter({
 
 router.beforeEach(async (to, from) => {
   const store = useUserStore();
-  if (to.name === 'login-page') {
+  const isLogin = localStorage.getItem('hiworld201-isLogin');
+
+  if (to.meta.authRoute && isLogin) {
     await store.login();
     if (store.isAuth) {
       return '/home';
@@ -88,6 +90,7 @@ router.beforeEach(async (to, from) => {
   if (to.meta.requiresAuth && !store.isAuth) {
     return '/login';
   }
+
   if (to.meta.authRoute && store.isAuth) {
     return false;
   }

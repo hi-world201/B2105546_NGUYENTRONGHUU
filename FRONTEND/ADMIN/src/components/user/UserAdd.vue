@@ -111,12 +111,11 @@ import '@/assets/css/form.css';
 import { ref } from 'vue';
 import { Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
-import { useRouter, useRoute, onBeforeRouteLeave } from 'vue-router';
+import { useRouter, onBeforeRouteLeave } from 'vue-router';
 import userService from '@/services/user.service';
 import Swal from 'sweetalert2';
 
 const router = useRouter();
-const route = useRoute();
 const isAdd = ref(false);
 const loading = ref(false);
 const user = ref({
@@ -167,7 +166,7 @@ async function onSubmit() {
   if (response.status === 'success') {
     await Swal.fire({
       title: 'Thành công',
-      text: 'Thêm tài khoản thành công!',
+      text: response.message,
       icon: 'success',
     });
     isAdd.value = true;
@@ -175,9 +174,7 @@ async function onSubmit() {
   } else {
     const result = await Swal.fire({
       title: 'Thất bại',
-      text: `Lỗi khi thêm tài khoản! ${
-        response.message.includes('email') ? 'Email đã tồn tại' : ''
-      }`,
+      text: response.message,
       icon: 'error',
     });
   }

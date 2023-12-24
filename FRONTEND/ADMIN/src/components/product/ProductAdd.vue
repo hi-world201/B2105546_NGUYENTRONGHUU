@@ -178,7 +178,7 @@ async function onSubmit() {
   if (response.status !== 'success') {
     await Swal.fire({
       title: 'Thất bại',
-      text: 'Thêm sản phẩm thất bại!',
+      text: response.message,
       icon: 'error',
     });
     loading.value = false;
@@ -186,21 +186,24 @@ async function onSubmit() {
     return;
   }
 
-  //  Add new image
-  await productService.createProductImages(response.data._id, formData.value);
-
   if (response.status === 'success') {
     isAdd.value = true;
+    //  Add new image
+    await productService.createProductImages(
+      response.data.product._id,
+      formData.value,
+    );
+
     await Swal.fire({
       title: 'Thành công',
-      text: 'Thêm sản phẩm thành công!',
+      text: response.message || 'Thêm sản phẩm thành công!',
       icon: 'success',
     });
     router.push({ name: 'product-list' });
   } else {
     await Swal.fire({
       title: 'Thất bại',
-      text: 'Thêm sản phẩm thất bại!',
+      text: response.message || 'Thêm sản phẩm thất bại!',
       icon: 'error',
     });
   }

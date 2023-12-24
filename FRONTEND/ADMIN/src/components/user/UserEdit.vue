@@ -147,7 +147,7 @@ async function onSubmit() {
   if (response.status === 'success') {
     await Swal.fire({
       title: 'Thành công',
-      text: 'Cập nhật thông tin tài khoản thành công!',
+      text: response.message || 'Cập nhật thông tin tài khoản thành công',
       icon: 'success',
     });
     isUpdated.value = true;
@@ -155,9 +155,7 @@ async function onSubmit() {
   } else {
     await Swal.fire({
       title: 'Thất bại',
-      text: `Cập nhật thông tin tài khoản thất bại! ${
-        response.message.includes('email') ? 'Email đã tồn tại' : ''
-      }`,
+      text: response.message || 'Đã xảy ra lỗi, vui lòng thử lại sau!',
       icon: 'error',
     });
   }
@@ -169,11 +167,11 @@ onBeforeMount(async () => {
   const response = await userService.getUser(route.params.userId);
 
   if (response.status === 'success') {
-    user.value = response.data;
+    user.value = response.data.user;
   } else {
     await Swal.fire({
       title: 'Thất bại',
-      text: 'Lỗi khi lấy thông tin tài khoản!',
+      text: response.message || 'Đã xảy ra lỗi, vui lòng thử lại sau!',
       icon: 'error',
     });
     isUpdated.value = true;

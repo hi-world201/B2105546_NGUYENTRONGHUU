@@ -38,7 +38,6 @@
 import { computed } from 'vue';
 import { useUserStore } from '@/stores/user.js';
 import { useRouter } from 'vue-router';
-import Swal from 'sweetalert2';
 
 const store = useUserStore();
 const router = useRouter();
@@ -52,21 +51,14 @@ const userStatusClass = computed(() => ({
 const userInfo = computed(() => {
   if (store.isAuth) {
     const name = store.email.split('@')[0];
-    if (name.length > 10) {
-      return name.slice(0, 10) + '...';
-    }
-    return name;
+
+    return name.length > 10 ? name.slice(0, 10) + '...' : name;
   }
   return 'Đăng nhập';
 });
 
 async function logout() {
   await store.logout();
-  await Swal.fire({
-    title: 'Thành công',
-    text: 'Đăng xuất thành công!',
-    icon: 'success',
-  });
   router.go(router.currentRoute);
 }
 </script>
