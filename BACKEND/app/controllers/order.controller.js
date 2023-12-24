@@ -6,7 +6,7 @@ const { orderMessage } = require('../languages');
 const Order = require('../models/order.model');
 const Product = require('../models/product.model');
 
-const extractOrderItems = catchAsync(async (items, next) => {
+const extractOrderItems = async (items, next) => {
   let totalPrice = 0;
   const orderItems = await Promise.all(
     items.map(async item => {
@@ -45,7 +45,7 @@ const extractOrderItems = catchAsync(async (items, next) => {
     }),
   );
   return { totalPrice, orderItems };
-});
+};
 
 exports.getAllOrders = catchAsync(async (req, res, next) => {
   if (req.user.role === 'customer') {
@@ -121,6 +121,8 @@ exports.createOrder = catchAsync(async (req, res, next) => {
     payload.orderItems,
     next,
   );
+
+  console.log(totalPrice, orderItems);
 
   const order = await Order.create({
     user: req.user.id,

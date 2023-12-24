@@ -19,8 +19,13 @@ const app = express();
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev')); // Use for dev
 }
-app.set('trust proxy', 1);
-app.use(cors());
+// app.set('trust proxy', 1);
+app.use(
+  cors({
+    credentials: true,
+    origin: '*',
+  }),
+);
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -34,7 +39,12 @@ app.use('/api/v1/orders', orderRouter);
 
 // Undefined routes
 app.use('*', (req, res, next) => {
-  return next(new ApiError(404, routeMessage.notFound.replace('{{originalUrl}}', req.originalUrl)));
+  return next(
+    new ApiError(
+      404,
+      routeMessage.notFound.replace('{{originalUrl}}', req.originalUrl),
+    ),
+  );
 });
 
 // Handle Errors

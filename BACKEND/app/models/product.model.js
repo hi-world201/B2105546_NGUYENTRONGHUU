@@ -21,7 +21,7 @@ const productSchema = mongoose.Schema(
     stockQuantity: {
       type: Number,
       required: [true, productMessage.requiredStockQuantity],
-      min: [1, productMessage.minStockQuantity],
+      min: [0, productMessage.minStockQuantity],
     },
     categories: {
       type: [{ type: String }],

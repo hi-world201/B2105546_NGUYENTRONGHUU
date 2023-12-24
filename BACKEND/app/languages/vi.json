@@ -64,7 +64,7 @@
     "requiredPrice": "Một sản phẩm phải có giá!",
     "minPrice": "Giá sản phẩm phải lớn hơn 0!",
     "requiredStockQuantity": "Một sản phẩm phải có số lượng tồn kho!",
-    "minStockQuantity": "Số lượng tồn kho của sản phẩm phải lớn hơn 1!",
+    "minStockQuantity": "Số lượng tồn kho của sản phẩm ít nhất là 0!",
     "requiredCreatedBy": "Một sản phẩm phải được tạo bởi một người dùng!",
     "productNotFound": "Không thể tìm thấy sản phẩm với ID:{{productId}}!"
   },

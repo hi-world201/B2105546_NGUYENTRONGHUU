@@ -64,7 +64,7 @@
         "requiredPrice": "An product must have a price!",
         "minPrice": "An product price must be greater than 0!",
         "requiredStockQuantity": "An product must have a stock quantity!",
-        "minStockQuantity": "An product stock quantity must be greater than 1!",
+        "minStockQuantity": "An product stock quantity must be at least 0!",
         "requiredCreatedBy": "An product must be created by a user!",
         "productNotFound": "Cannot find product with ID:{{productId}}!"
     },

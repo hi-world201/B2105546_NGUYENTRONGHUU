@@ -5,7 +5,7 @@ const catchAsync = require('../utils/catchAsync.util');
 
 const Image = require('../models/image.model');
 const Product = require('../models/product.model');
-const { cartMessage } = require('../languages');
+const { imageMessage } = require('../languages');
 
 exports.createProductImage = async (req, res, next) => {
   try {
@@ -15,7 +15,7 @@ exports.createProductImage = async (req, res, next) => {
       return next(
         new ApiError(
           404,
-          cartMessage.productNotFound.replace(
+          imageMessage.productNotFound.replace(
             '{{productId}}',
             req.params.productId,
           ),
@@ -62,7 +62,7 @@ exports.deleteProductImage = catchAsync(async (req, res, next) => {
     return next(
       new ApiError(
         404,
-        cartMessage.productNotFound.replace(
+        imageMessage.productNotFound.replace(
           '{{productId}}',
           req.params.productId,
         ),
@@ -88,7 +88,7 @@ exports.getImage = catchAsync(async (req, res, next) => {
     return next(
       new ApiError(
         404,
-        cartMessage.imageNotFound.replace('{{imageId}}', req.params.imageId),
+        imageMessage.imageNotFound.replace('{{imageId}}', req.params.imageId),
       ),
     );
   }

@@ -27,6 +27,7 @@ const handleDuplicateKeyErrorDB = err => {
 };
 
 const handleValidationErrorDB = err => {
+  console.log(err);
   const message = Object.keys(err.errors)
     .map(field => err.errors[field].message)
     .join('. ');

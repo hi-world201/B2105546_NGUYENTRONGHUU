@@ -83,13 +83,15 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new ApiError(401, userMessage.incorrectLoginInfo));
   }
 
-  await setCookie(res, signToken(user._id));
+  setCookie(res, signToken(user._id));
   res.status(200).json({
     status: 'success',
     message: userMessage.loginSuccess,
     data: {
-      email: user.email,
-      role: user.role,
+      user: {
+        email: user.email,
+        role: user.role,
+      },
     },
   });
 });
@@ -102,6 +104,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1];
   */
   const decodedToken = jwt.verify(getCookie(req), process.env.JWT_SECRET_KEY);
+  console.log(decodedToken);
 
   const user = await User.findById(decodedToken._id);
 
