@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === 'development') {
 app.use(
   cors({
     credentials: true,
-    origin: '*',
+    origin: process.env.CLIENT_URL.split(','),
   }),
 );
 app.use(cookieParser());

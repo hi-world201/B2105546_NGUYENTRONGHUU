@@ -122,8 +122,6 @@ exports.createOrder = catchAsync(async (req, res, next) => {
     next,
   );
 
-  console.log(totalPrice, orderItems);
-
   const order = await Order.create({
     user: req.user.id,
     shippingAddress: payload.shippingAddress,

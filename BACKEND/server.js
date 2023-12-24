@@ -5,7 +5,7 @@ const app = require('./app');
 
 async function startServer() {
   try {
-    const { PORT, URL, MONGODB_URI, NODE_ENV } = process.env;
+    const { PORT, MONGODB_URI, NODE_ENV } = process.env;
 
     console.log(`Environment: ${NODE_ENV}`);
 
@@ -16,7 +16,7 @@ async function startServer() {
     // App listen
     app.listen(PORT);
 
-    console.log(`Server is running on port ${URL}:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
   } catch (err) {
     console.log('There is some internal error!');
     process.exit(1);
