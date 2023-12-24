@@ -18,7 +18,7 @@ export default defineConfig({
         // target: 'http://127.0.0.1:8080',
         changeOrigin: true,
         headers: {
-          'Access-Control-Allow-Origin': 'http://localhost:5173',
+          'Access-Control-Allow-Origin': 'https://bookstore-admin.onrender.com',
           'Access-Control-Allow-Credentials': 'true',
         },
       },
