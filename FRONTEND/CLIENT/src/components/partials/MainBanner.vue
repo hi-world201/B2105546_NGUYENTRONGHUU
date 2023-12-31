@@ -43,14 +43,14 @@ const store = useUserStore();
 }
 
 .banner-text {
-  padding: 0 50px;
+  padding: 0 30px;
   font-weight: 600;
-  font-size: 40px;
+  font-size: 2em;
 }
 
 .banner-description {
-  padding: 0 50px;
-  font-size: 22px;
+  padding: 0 30px;
+  font-size: 1.2em;
 }
 
 .banner-text + .banner-description {

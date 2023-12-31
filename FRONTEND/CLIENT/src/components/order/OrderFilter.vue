@@ -3,7 +3,10 @@
     <div v-for="status in statusList" :key="status.value">
       <button
         class="btn btn-sm"
-        :class="{ active: status.value === route.query.currentStatus }"
+        :class="{
+          active: status.value === route.query.currentStatus,
+          'd-none d-lg-inline': status.value === undefined,
+        }"
         @click="onFilter(status.value)"
       >
         {{ status.label }}

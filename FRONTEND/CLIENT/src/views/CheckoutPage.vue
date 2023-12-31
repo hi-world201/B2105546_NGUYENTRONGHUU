@@ -54,7 +54,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th class="d-none d-lg-table-cell" scope="col">#</th>
                 <th scope="col">Sản phẩm</th>
                 <th class="d-none d-lg-table-cell" scope="col">Giá</th>
                 <th scope="col">Số lượng</th>
@@ -68,7 +68,9 @@
                 :key="item._id"
                 style="vertical-align: middle"
               >
-                <th scope="row">{{ index + 1 }}</th>
+                <th class="d-none d-lg-table-cell" scope="row">
+                  {{ index + 1 }}
+                </th>
                 <td>
                   <img
                     class="item-image"
@@ -88,11 +90,13 @@
                 </td>
               </tr>
               <tr>
-                <th class="d-none d-lg-table-cell" colspan="2"></th>
+                <th class="d-none d-lg-table-cell" colspan="1"></th>
                 <th colspan="2" style="vertical-align: middle">
                   Tổng thành tiền:
                 </th>
-                <td class="total-price">{{ getPriceString(totalPrice) }}đ</td>
+                <td class="total-price" colspan="2">
+                  {{ getPriceString(totalPrice) }}đ
+                </td>
               </tr>
             </tbody>
           </table>
@@ -308,7 +312,7 @@ onBeforeMount(async () => {
 
 .order-info {
   margin-bottom: 20px;
-  padding: 20px 20px 10px 20px;
+  padding: 20px 15px 10px 15px;
   border: 1px solid #e9e9e9;
   box-shadow: 2px 2px 5px #ccc;
 }
