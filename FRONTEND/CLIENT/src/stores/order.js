@@ -1,6 +1,7 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import userServce from '@/services/user.service.js';
+import Swal from 'sweetalert2';
 
 export const useOrderStore = defineStore('order', () => {
   const order = ref({
@@ -9,11 +10,34 @@ export const useOrderStore = defineStore('order', () => {
   });
 
   async function createOrder(data) {
-    order.value.user = (await userServce.getMe()).data;
-    order.value.shippingAddress = order.value.user.address || '';
-    order.value.telephone = order.value.user.telephone || '';
-    order.value.fullname = order.value.user.fullname || '';
-    order.value.orderItems = data;
+    try {
+      const response = await userServce.getMe();
+
+      if (response.status === 'success') {
+        order.value.user = response.data.user;
+        order.value.shippingAddress = order.value.user.address || '';
+        order.value.telephone = order.value.user.telephone || '';
+        order.value.fullname = order.value.user.fullname || '';
+        order.value.orderItems = data;
+
+        return true;
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Thất bại',
+          text: response.message || 'Đã có lỗi xảy ra, vui lòng thử lại sau!',
+        });
+        return false;
+      }
+    } catch (error) {
+      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Thất bại',
+        text: 'Đã có lỗi xảy ra, vui lòng thử lại sau!',
+      });
+      return false;
+    }
   }
 
   function getOrder() {

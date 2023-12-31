@@ -153,7 +153,7 @@ async function onSubmit() {
     await Swal.fire({
       icon: 'error',
       title: 'Thất bại',
-      text: 'Đã xảy ra lỗi, vui lòng thử lại sau!',
+      text: response.message || 'Đã xảy ra lỗi, vui lòng thử lại sau!',
     });
     router.push({ name: 'home-page' });
     return;
@@ -162,7 +162,7 @@ async function onSubmit() {
   await Swal.fire({
     icon: 'success',
     title: 'Thành công',
-    text: 'Cập nhật thông tin thành công!',
+    text: response.message || 'Cập nhật thông tin thành công!',
   });
 
   loading.value = false;
@@ -190,12 +190,16 @@ async function refreshData() {
   const response = await userService.getMe();
 
   if (response.status !== 'success') {
-    alert('Đã xảy ra lỗi, vui lòng thử lại sau');
+    await Swal.fire({
+      icon: 'error',
+      title: 'Thất bại',
+      text: response.message || 'Đã xảy ra lỗi, vui lòng thử lại sau!',
+    });
     router.push({ name: 'home-page' });
     return;
   }
 
-  data.value = response.data;
+  data.value = response.data.user;
 }
 
 onBeforeMount(async () => {

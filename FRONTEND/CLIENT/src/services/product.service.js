@@ -8,7 +8,10 @@ class ProductService {
 
   async getAllProducts(query) {
     try {
-      const params = new URLSearchParams(query).toString();
+      const params = new URLSearchParams({
+        ...query,
+        'stockQuantity[$gt]': 0,
+      }).toString();
       const response = await this.api.json.get(`/?${params}`);
       return response.data;
     } catch (err) {

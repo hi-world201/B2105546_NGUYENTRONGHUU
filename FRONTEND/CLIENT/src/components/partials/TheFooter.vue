@@ -4,6 +4,7 @@
       class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top rounded-3"
     >
       <p class="col-md-4">© 2023 Hiworld, BookStore</p>
+      <p>Developed by nth</p>
     </footer>
   </div>
 </template>

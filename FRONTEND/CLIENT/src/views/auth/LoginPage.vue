@@ -99,22 +99,7 @@ async function onSubmit() {
     password: password.value,
   });
 
-  if (store.isAuth) {
-    await Swal.fire({
-      title: 'Thành công!',
-      text: 'Bạn đã đăng nhập thành công!',
-      icon: 'success',
-    });
-    router.push({ name: 'home-page' });
-  } else {
-    await Swal.fire({
-      icon: 'error',
-      title: 'Thất bại!',
-      text: 'Sai tên tài khoản hoặc mật khẩu!',
-    });
-    password.value = '';
-    await store.logout();
-  }
+  if (store.isAuth) router.push({ name: 'home-page' });
 
   loading.value = false;
 }

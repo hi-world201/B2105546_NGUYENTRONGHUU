@@ -78,6 +78,18 @@ async function onSubmit() {
   try {
     await userFormSchema.validate(data.value, { abortEarly: false });
 
+    const isConfirmed = await Swal.fire({
+      title: 'Xác nhận thay đổi mật khẩu',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Xác nhận',
+      cancelButtonText: 'Hủy',
+    });
+
+    if (!isConfirmed) {
+      return;
+    }
+
     const response = await userService.updatePassword(data.value);
 
     if (response.status !== 'success') {
@@ -102,7 +114,7 @@ async function onSubmit() {
       return Swal.fire({
         icon: 'error',
         title: 'Thất bại',
-        text: 'Vui lòng nhập đầy đủ thông tin',
+        text: error.errors[0],
       });
     }
     Swal.fire({

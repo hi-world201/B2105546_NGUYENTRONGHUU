@@ -62,7 +62,7 @@ async function refreshOrders() {
   });
 
   if (response.status === 'success') {
-    orders.value = response.data;
+    orders.value = response.data.orders;
   } else {
     orders.value = [];
   }

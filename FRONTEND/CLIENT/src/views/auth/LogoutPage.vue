@@ -13,12 +13,6 @@ const router = useRouter();
 
 onMounted(async () => {
   await store.logout();
-  await Swal.fire({
-    icon: 'success',
-    title: 'Đăng xuất thành công',
-    showConfirmButton: false,
-    timer: 1500,
-  });
   router.push({ name: 'home-page' });
 });
 </script>

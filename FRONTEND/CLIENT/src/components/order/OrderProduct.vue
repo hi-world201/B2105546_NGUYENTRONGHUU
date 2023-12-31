@@ -33,7 +33,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 const props = defineProps(['item']);
 
-function imageLink(product) {
+function imageLink() {
   return `${import.meta.env.VITE_BACKEND_PRODUCT_IMAGE_URL}/${
     props.item.product.images[0]
   }`;

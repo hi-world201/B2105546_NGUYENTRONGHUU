@@ -74,7 +74,7 @@ async function onSubmit() {
     await Swal.fire({
       icon: 'success',
       title: 'Thành công',
-      text: 'Thông tin xác thực đã được gửi đến email của bạn!',
+      text: response.message,
     });
     router.push({ name: 'login-page' });
   } else {
@@ -82,7 +82,7 @@ async function onSubmit() {
     await Swal.fire({
       icon: 'error',
       title: 'Thất bại',
-      text: 'Xảy ra lỗi trong quá trình xác thực! Vui lòng thử lại!',
+      text: response.message,
     });
   }
   loading.value = false;

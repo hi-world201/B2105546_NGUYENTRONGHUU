@@ -5,6 +5,7 @@ const commonConfig = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
   },
+  withCredentials: true,
 };
 
 const formDataConfig = {
@@ -12,16 +13,17 @@ const formDataConfig = {
     'Content-Type': 'multipart/form-data',
     Accept: 'application/json',
   },
+  withCredentials: true,
 };
 
 export default (baseURL) => {
   return {
     json: axios.create({
-      baseURL: `${import.meta.env.VITE_BACKEND_URL}${baseURL}`,
+      baseURL: import.meta.env.VITE_MODE === 'development' ? baseURL: `${import.meta.env.VITE_BACKEND_URL}${baseURL}`,
       ...commonConfig,
     }),
     formData: axios.create({
-      baseURL: `${import.meta.env.VITE_BACKEND_URL}${baseURL}`,
+      baseURL: import.meta.env.VITE_MODE === 'development' ? baseURL: `${import.meta.env.VITE_BACKEND_URL}${baseURL}`,
       ...formDataConfig,
     }),
   };

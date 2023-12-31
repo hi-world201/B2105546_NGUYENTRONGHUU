@@ -43,7 +43,7 @@ async function refreshProducts() {
     };
     const response = await productService.getAllProducts(query);
     if (response.status === 'success') {
-      products.value = response.data;
+      products.value = response.data.products;
     } else {
       products.value = [];
     }
@@ -56,7 +56,7 @@ async function refreshProducts() {
       : await productService.getAllProducts(route.query);
 
   if (response.status === 'success') {
-    products.value = response.data;
+    products.value = response.data.products;
   } else {
     products.value = [];
   }

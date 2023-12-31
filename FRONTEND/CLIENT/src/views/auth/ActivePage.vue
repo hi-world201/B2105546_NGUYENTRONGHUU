@@ -24,16 +24,16 @@ onMounted(async () => {
   const response = await userService.activeAccount(token);
 
   if (response.status === 'success') {
-    await Swal.fire(
-      'Thành công!',
-      'Kích hoạt tài khoản thành công!',
-      'success',
-    );
+    await Swal.fire({
+      title: 'Thành công!',
+      text: response.message,
+      icon: 'success',
+    });
   } else {
     await Swal.fire({
       icon: 'error',
       title: 'Thất bại!',
-      text: 'Đã có lỗi xảy ra!',
+      text: response.message,
     });
   }
   router.push({

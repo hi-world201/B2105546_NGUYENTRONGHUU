@@ -69,13 +69,14 @@ async function removeItem(itemId) {
   if (response.status === 'fail') {
     Toast.fire({
       icon: 'error',
-      title: 'Xóa sản phẩm khỏi giỏ hàng thất bại!',
+      title: response.message || 'Xóa sản phẩm khỏi giỏ hàng thất bại!',
     });
   } else {
     Toast.fire({
       icon: 'success',
-      title: 'Xóa sản phẩm khỏi giỏ hàng thành công!',
+      title: response.message || 'Xóa sản phẩm khỏi giỏ hàng thành công!',
     });
+    removeFromOrder({ _id: itemId });
     await refreshCart();
   }
 }
@@ -92,12 +93,14 @@ async function updateItem(itemId, quantity) {
   if (response.status === 'fail') {
     Toast.fire({
       icon: 'error',
-      title: 'Cập nhật số lượng thất bại!',
+      title: 'Thất bại!',
+      text: response.message || 'Cập nhật số lượng thất bại!',
     });
   } else {
     Toast.fire({
       icon: 'success',
-      title: 'Cập nhật số lượng thành công!',
+      title: 'Thành công!',
+      text: response.message || 'Cập nhật số lượng thành công!',
     });
     await refreshCart();
   }

@@ -115,7 +115,7 @@ async function addCart() {
     });
     Toast.fire({
       icon: 'success',
-      title: 'Thêm vào giỏ hàng thành công!',
+      title: response.message || 'Thêm vào giỏ hàng thành công!',
     });
   } else {
     const Toast = Swal.mixin({
@@ -126,7 +126,7 @@ async function addCart() {
     });
     Toast.fire({
       icon: 'error',
-      title: 'Thêm sản phẩm thất bại! Vui lòng thử lại!',
+      title: response.message || 'Thêm sản phẩm thất bại! Vui lòng thử lại!',
     });
   }
 }
@@ -164,8 +164,13 @@ async function createOrder() {
 
   if (!result.isConfirmed) return;
 
-  orderStore.createOrder(data);
-  router.push({ name: 'checkout-page' });
+  const isCreated = await orderStore.createOrder(data);
+
+  if (!isCreated) {
+    router.push({ name: 'login-page' });
+  } else {
+    router.push({ name: 'checkout-page' });
+  }
 }
 
 onBeforeMount(async () => {
@@ -175,14 +180,14 @@ onBeforeMount(async () => {
     Swal.fire({
       icon: 'error',
       title: 'Thất bại',
-      text: 'Không tìm thấy sản phẩm',
+      text: response.message || 'Không tìm thấy sản phẩm!',
     });
     router.push({ name: 'home-page' });
 
     return;
   }
 
-  product.value = response.data;
+  product.value = response.data.product;
   quantity.value = Math.min(1, product.value.stockQuantity);
 });
 </script>

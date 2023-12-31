@@ -184,6 +184,7 @@ function onEdit() {
       const telephone = Swal.getPopup().querySelector('#telephone').value;
       const shippingAddress =
         Swal.getPopup().querySelector('#shippingAddress').value;
+
       try {
         const result = await schema.validate(
           { fullname, telephone, shippingAddress },
@@ -253,14 +254,14 @@ async function onSubmit() {
     Swal.fire({
       icon: 'success',
       title: 'Thành công',
-      text: 'Đặt hàng thành công!',
+      text: response.message || 'Đặt hàng thành công!',
     });
     router.push({ name: 'order-page' });
   } else {
     Swal.fire({
       icon: 'error',
       title: 'Thất bại',
-      text: 'Đặt hàng thất bại! Vui lòng thử lại!',
+      text: response.message || 'Đặt hàng thất bại!',
     });
   }
 }

@@ -101,14 +101,14 @@ async function onSubmit() {
   if (response.status === 'success') {
     await Swal.fire({
       title: 'Thành công!',
-      text: 'Đặt lại mật khẩu thành công',
+      text: response.message,
       icon: 'success',
     });
     router.push({ name: 'login-page' });
   } else {
     await Swal.fire({
       title: 'Thất bại!',
-      text: 'Đặt lại mật khẩu thất bại!',
+      text: response.message,
       icon: 'error',
     });
     password.value = '';

@@ -169,7 +169,7 @@ async function onSubmit() {
   if (response.status === 'success') {
     await Swal.fire({
       title: 'Thành công!',
-      text: 'Bạn đã đăng ký tài khoản thành công! Thông tin kích hoạt đã được gửi đến email của bạn!',
+      text: response.message,
       icon: 'success',
     });
     router.push({ name: 'login-page' });
@@ -177,9 +177,7 @@ async function onSubmit() {
     await Swal.fire({
       icon: 'error',
       title: 'Thất bại!',
-      text: `Đăng ký tài khoản thất bại! ${
-        response.message.includes('email') ? 'Email đã tồn tại!' : ''
-      } Vui lòng thử lại!`,
+      text: response.message,
     });
     password.value = '';
   }
