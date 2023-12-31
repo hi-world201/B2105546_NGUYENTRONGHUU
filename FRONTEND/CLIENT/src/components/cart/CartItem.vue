@@ -1,6 +1,6 @@
 <template>
   <div class="row cart-product">
-    <div class="col-1 d-flex align-items-center">
+    <div class="col-12 col-md-1 d-flex align-items-center">
       <input
         v-if="item.quantity > 0"
         class="item-check"
@@ -8,7 +8,9 @@
         v-model="checked"
       />
     </div>
-    <div class="col-11 d-flex justify-content-between align-items-center">
+    <div
+      class="col-12 col-md-11 d-flex justify-content-between align-items-center"
+    >
       <div
         class="product-info d-flex justify-content-between align-items-center"
         @click="

@@ -4,7 +4,7 @@
 
     <div class="review py-5">
       <h2 class="text-center">Phản hồi từ khách hàng</h2>
-      <review-list></review-list>
+      <review-list class="mt-2"></review-list>
     </div>
 
     <hr />

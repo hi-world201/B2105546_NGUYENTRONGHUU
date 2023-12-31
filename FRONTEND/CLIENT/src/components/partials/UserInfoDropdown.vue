@@ -62,6 +62,10 @@ async function updateMenu() {
         link: { name: 'user-page' },
       },
       {
+        title: 'Đổi mật khẩu',
+        link: { name: 'change-password' },
+      },
+      {
         title: 'Đơn hàng',
         link: { name: 'order-page' },
       },

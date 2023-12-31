@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card product-item col-4 col-lg-2 rounded-0 border-0 p-2"
+    class="card product-item col-6 col-md-4 col-lg-2 rounded-0 border-0 p-2"
     @click="onView()"
   >
     <img class="product-image" :src="imageLink" alt="Ảnh sách" />

@@ -3,23 +3,24 @@
     <div class="py-3 text-white">
       <div class="container-md">
         <div class="row">
-          <div class="col-2 col-lg-3">
+          <div class="col-8 col-md-3 order-1">
             <router-link
               :to="'/'"
               class="d-flex py-2 text-white text-decoration-none"
             >
               <span id="brand"
-                >Hiworld Bookstore <i class="fa-solid fa-house"></i>
+                >Hiworld BStore
+                <i class="fa-solid fa-house d-none d-md-inline-block"></i>
               </span>
             </router-link>
           </div>
           <div
-            class="col-6 col-lg-6 d-flex justify-content-center align-items-center"
+            class="col-12 col-md-6 order-last order-md-2 d-flex justify-content-center align-items-center"
           >
             <search-bar></search-bar>
           </div>
           <div
-            class="d-flex justify-content-end align-items-center col-4 col-lg-3"
+            class="d-flex justify-content-end align-items-center col-4 col-md-3 order-3"
           >
             <router-link :to="{ name: 'cart-page' }" class="px-2 cart-link"
               ><i class="fa-solid fa-cart-shopping"></i

@@ -8,8 +8,12 @@
       })
     "
   >
-    <div class="d-flex justify-content-between align-items-center">
-      <img class="item-image" :src="imageLink(item.product)" alt="" />
+    <div class="d-lg-flex justify-content-between align-items-center">
+      <img
+        class="item-image"
+        :src="imageLink(item.product)"
+        alt="Ảnh sản phẩm"
+      />
       <div class="p-1">
         <div class="product-name">
           {{ nameString }}

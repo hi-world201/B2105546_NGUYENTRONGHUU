@@ -10,32 +10,35 @@
       <div class="mb-3 form-group">
         <div class="order-info">
           <h4 class="mt-3">Thông tin giao hàng:</h4>
-          <table class="table">
-            <tbody>
-              <tr>
-                <th>Email:</th>
-                <td>{{ order.user.email }}</td>
-                <th>Số điện thoại:</th>
-                <td>
-                  {{ order.telephone ? order.telephone : 'Chưa có thông tin' }}
-                </td>
-              </tr>
-              <tr>
-                <th>Họ tên:</th>
-                <td>
-                  {{ order.fullname ? order.fullname : 'Chưa có thông tin' }}
-                </td>
-                <th>Địa chỉ:</th>
-                <td>
-                  {{
-                    order.shippingAddress
-                      ? order.shippingAddress
-                      : 'Chưa có thông tin'
-                  }}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="row">
+            <div class="col-12 col-md-6 my-1">
+              <span class="fw-bold">Email: </span>
+              <span>{{ order.user.email }}</span>
+            </div>
+
+            <div class="col-12 col-md-6 my-1">
+              <span class="fw-bold">Họ tên: </span>
+              <span>
+                {{ order.fullname ? order.fullname : 'Chưa có thông tin' }}
+              </span>
+            </div>
+            <div class="col-12 col-md-6 my-1">
+              <span class="fw-bold">Địa chỉ: </span>
+              <span>
+                {{
+                  order.shippingAddress
+                    ? order.shippingAddress
+                    : 'Chưa có thông tin'
+                }}
+              </span>
+            </div>
+            <div class="col-12 col-md-6 my-1">
+              <span class="fw-bold">Số điện thoại: </span>
+              <span>
+                {{ order.telephone ? order.telephone : 'Chưa có thông tin' }}
+              </span>
+            </div>
+          </div>
           <p class="order-date">
             <i
               class="fa-solid fa-calendar-day"
@@ -53,7 +56,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Sản phẩm</th>
-                <th scope="col">Giá</th>
+                <th class="d-none d-lg-table-cell" scope="col">Giá</th>
                 <th scope="col">Số lượng</th>
                 <th scope="col">Thành tiền</th>
               </tr>
@@ -72,16 +75,20 @@
                     :src="imageLink(item.product)"
                     alt="Ảnh sản phẩm"
                   />
-                  {{ getNameString(item.product.name) }}
+                  <span class="d-none d-lg-inline">{{
+                    getNameString(item.product.name)
+                  }}</span>
                 </td>
-                <td>{{ getPriceString(item.product.price) }}đ</td>
+                <td class="d-none d-lg-table-cell">
+                  {{ getPriceString(item.product.price) }}đ
+                </td>
                 <td>x{{ item.quantity }}</td>
                 <td>
                   {{ getPriceString(item.product.price * item.quantity) }}đ
                 </td>
               </tr>
               <tr>
-                <th colspan="2"></th>
+                <th class="d-none d-lg-table-cell" colspan="2"></th>
                 <th colspan="2" style="vertical-align: middle">
                   Tổng thành tiền:
                 </th>

@@ -12,7 +12,7 @@
         :key="index"
         :review="review"
       >
-        <blockquote class="blockquote">
+        <blockquote class="blockquote" style="font-size: 1em">
           <i class="fas fa-quote-left"></i>
           {{ review.content }}
           <i class="fas fa-quote-right"></i>

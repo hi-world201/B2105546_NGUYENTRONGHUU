@@ -28,8 +28,8 @@
           </tr>
         </tbody>
       </table>
-      <h4 class="mt-3">Chi tiết đơn hàng:</h4>
-      <table class="table">
+      <h4 class="mt-3 d-none d-md-block">Chi tiết đơn hàng:</h4>
+      <table class="table d-none d-md-block">
         <thead>
           <tr>
             <th scope="col">#</th>

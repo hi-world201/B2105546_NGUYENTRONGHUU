@@ -2,12 +2,12 @@
   <li
     class="order-item d-flex flex-column justify-content-between align-items-strech mt-4"
   >
-    <div class="order-id d-flex justify-content-between align-items-center">
+    <div class="order-id d-lg-flex justify-content-between align-items-center">
       <div class="p-1">
         <i class="fa-solid fa-store" style="color: var(--color-secondary)"></i>
         {{ props.order._id }}
       </div>
-      <div>
+      <div class="text-end">
         <span :class="currentStatusSpanClass">
           {{ currentStatus }}
           <i :class="currentStatusIconClass"></i>
@@ -19,9 +19,9 @@
       :item="item"
       :key="item.product._id"
     ></order-product>
-    <div class="d-flex justify-content-between align-items-center pt-3">
+    <div class="d-lg-flex justify-content-between align-items-center pt-3">
       <div>
-        <button class="order-btn info-btn me-1" @click="showInfo">
+        <button class="order-btn info-btn me-1 mb-1" @click="showInfo">
           <i class="fa-solid fa-receipt"></i> Xem chi tiết
         </button>
         <button
@@ -40,7 +40,7 @@
           hàng
         </button>
       </div>
-      <div class="p-1 ms-auto">
+      <div class="p-1 ms-auto text-end">
         <span style="font-size: 0.8rem">Thành tiền: </span>
         <span class="total-price">{{ totalPriceString }}đ</span>
       </div>
